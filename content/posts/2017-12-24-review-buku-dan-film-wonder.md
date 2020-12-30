@@ -5,6 +5,7 @@ judul: "Wonder"
 penulis: "R. J. Palacio"
 cover: /assets/images/post/wonder/cover.jpg
 adsense: true
+slug: review-wonder
 comments: true
 categories: ['book']
 permalink: /:categories/:title/

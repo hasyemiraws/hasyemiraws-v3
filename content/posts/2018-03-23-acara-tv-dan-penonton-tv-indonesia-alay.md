@@ -3,6 +3,7 @@ layout: post
 title:  "Acara TV dan Penonton Indonesia Alay? Tidak Mendidik?"
 comments: true
 adsense: true
+slug: acara-tv-tidak-mendidik
 date:   2018-03-23 00:00:00 +0800
 categories: thoughts
 description: Acara TV Indonesia itu kebanyakan alay, penontonnya alay, artisnya juga alay. Apa iya?

@@ -4,6 +4,7 @@ title:  "Movie Review: Avengers Infinity War (No Spoiler)"
 comments: true
 date:   2018-05-02 00:00:00 +0800
 adsense: true
+slug: review-avengers-infinity-war
 lang: en
 categories: thoughts
 tags: featured

@@ -1,6 +1,7 @@
 ---
 layout: post2
 title:  "Pengalaman ikutan Baca Bareng (Silent Book Club) di Jakarta"
+slug: ikut-baca-bareng-jakara
 comments: true
 adsense: true
 date:   2020-01-30 00:00:00 +0800

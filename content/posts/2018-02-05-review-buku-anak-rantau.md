@@ -4,6 +4,7 @@ title:  "Review Buku Anak Rantau dari Ahmad Fuadi"
 judul: "Anak Rantau"
 penulis: "Ahmad Fuadi"
 adsense: true
+slug: review-anak-rantau
 comments: true
 categories: ['book']
 permalink: /:categories/:title/

@@ -4,6 +4,7 @@ title:  "Review Buku Rentang Kisah oleh Gita Savitri Devi (Gitasav)"
 judul: "Rentang Kisah"
 penulis: "Gita Savitri Devi"
 cover: /assets/images/post/rentang-kisah.jpg
+slug: rentang-kisah
 comments: true
 adsense: true
 categories: ['book']

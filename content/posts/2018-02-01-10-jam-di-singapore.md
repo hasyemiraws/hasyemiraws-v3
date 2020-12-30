@@ -2,6 +2,7 @@
 layout: post
 title:  "10 Jam Layover di Singapore"
 comments: true
+slug: layover-di-singapore
 adsense: true
 date:   2018-02-01 00:00:00 +0800
 categories: travel

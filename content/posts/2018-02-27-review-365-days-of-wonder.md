@@ -3,6 +3,7 @@ layout: post
 title:  "Review Buku 365 Days of Wonder oleh R. J. Palacio"
 adsense: true
 comments: true
+slug: review-buku-365-wonder
 categories: ['book']
 permalink: /:categories/:title/
 date:   2018-02-27 00:00:00 +0800

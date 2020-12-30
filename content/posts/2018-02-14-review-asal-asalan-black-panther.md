@@ -4,6 +4,7 @@ title:  "Review Asal-asalan: Film Black Panther"
 comments: true
 date:   2018-02-14 00:00:00 +0800
 adsense: true
+slug: review-black-panther
 categories: thoughts
 description: Review asal-asalan adalah segmen konten yang baru yang akan gue buat di blog ini. Karena gue pribadi suka nonton film, dan terkadang gatel untuk nulis kesan gue terhadap film itu. Kenapa asal-asalan karena gue bukan ahli mengulas dan mengkritik yang profesional, jadi gue tuliskan sesuka gue dan ini adalah penilaian pribadi/subjektif dari gue. Tulisan pertama untuk Review asal-asalan adalah Film Black Panther
 author: Hasyemi Rafsanjani Asyari

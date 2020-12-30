@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Pengalaman Company Trip 3 hari 2 malem di Ratu Rening Resort Malaysia"
+slug: company-trip-ratu-rening
 comments: true
 date:   2017-12-14 00:00:00 +0800
 adsense: true

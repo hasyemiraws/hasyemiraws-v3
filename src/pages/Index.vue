@@ -14,10 +14,27 @@
     </section>
     <section class="container section">
       <h1 class="section--title">/BLOG</h1>
-      <BlogList/>
+      <BlogList :pages="$page.allPost.edges" />
     </section>
   </Layout>
 </template>
+
+<page-query>
+query {
+    allPost {
+        totalCount
+        edges {
+            node {
+                id
+                title
+                path
+                description
+                featured_image
+            }
+        }
+    }
+}
+</page-query>
 
 <script>
 import BlogList from "../components/BlogList";

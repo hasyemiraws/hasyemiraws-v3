@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Hello World! Yet Again"
+slug: "hello-world"
 comments: true
 date:   2017-10-22 18:00:00 +0800
 lang: en

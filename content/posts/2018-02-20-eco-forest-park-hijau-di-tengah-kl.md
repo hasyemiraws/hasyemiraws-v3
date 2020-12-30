@@ -3,6 +3,7 @@ layout: post
 title:  "Jalan-jalan ke KL Eco Forest Park, Hijau di tengah Kuala Lumpur"
 comments: true
 date:   2018-02-20 00:00:00 +0800
+slug: kl-eco-forest-park
 adsense: false
 categories: travel
 description: Main ke tengah hijau hutan tengah kota di tengah teriknya Kuala Lumpur
