@@ -9,7 +9,7 @@ categories: thoughts
 tags: featured
 description: Baca Bareng yang terbagung dalam silent book club ini adalah salah satu kegiatan dimana kita diajak untuk membaca bersama di ruang publik dalam henyap, tanpa ada interaksi berlebih, tenggelam dalam buku bacaan kita tanpa terganggu atau takut dihakimi ketika baca di ruang publik.
 author: Hasyemi Rafsanjani Asyari
-featured_image: ../../src/assets/images/post/baca-bareng/baca-bareng-cover.jpg
+featured_image: https://hasyemiraws.com/assets/images/post/baca-bareng/baca-bareng-cover.jpg
 excerpt_separator: <!--more-->
 ---
 

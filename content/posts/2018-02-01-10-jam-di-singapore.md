@@ -8,7 +8,7 @@ date:   2018-02-01 00:00:00 +0800
 categories: travel
 description: 10 Jam transit di Singapore di malam hari, bisa melakukan apa aja kah?
 author: Hasyemi Rafsanjani Asyari
-featured_image: ../../src/assets/images/post/10-jam-sg/cover.jpg
+featured_image: https://hasyemiraws.com/assets/images/post/10-jam-sg/cover.jpg
 excerpt_separator: <!--more-->
 ---
 

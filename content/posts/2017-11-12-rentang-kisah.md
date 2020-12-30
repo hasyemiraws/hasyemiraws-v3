@@ -12,7 +12,7 @@ permalink: /:categories/:title/
 date:   2017-11-12 18:00:00 +0800
 description: Rentang Kisah ini adalah buku debut pertama dari Gita Savitri Devi atau yang lebih di kenal dengan aliasnya di social media dengan nama @gitasav. Di buku perdananya ini, konten yang ia tuliskan disini adalah kisah perjalanan pribadinya dari dan sampai ke Jerman. Kisah bagaimana proses perjalanan ini bisa mengubahnya.
 author: Hasyemi Rafsanjani Asyari
-featured_image: ../../src/assets/images/post/rentang-kisah/rentang-kisah-cover.jpg
+featured_image: https://hasyemiraws.com/assets/images/post/rentang-kisah/rentang-kisah-cover.jpg
 excerpt_separator: <!--more-->
 ---
 

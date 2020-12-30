@@ -8,7 +8,7 @@ adsense: true
 categories: travel
 description: Akhirnya kesampean nulis post travel! Memang jalan-jalan yang direncanakan mendadak selalu jadi haha. Colmar Tropical French Village ini letaknya ada di Bukit Tinggi, dan jaraknya sebenarnya tidak terlalu jauh dari pusat kota Kuala Lumpur. Disini kita bisa menikmati suasana arsitektur Perancis, selain French Resort ada juga Japanesse Village untuk merasakan hidup ala-ala Jepang lengkap dengan Kimono, rumah nature khas Jepang.
 author: Hasyemi Rafsanjani Asyari
-featured_image: ../../src/assets/images/post/colmar/1.jpg
+featured_image: https://hasyemiraws.com/assets/images/post/colmar/1.jpg
 excerpt_separator: <!--more-->
 ---
 
