@@ -1,0 +1,49 @@
+@import "./css/_variables.scss";
+@import "./css/_base.scss";
+@import "./css/_typography.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero {
+    &--intro {
+        height: 70%;        
+        display: flex;   
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    &--label {
+        .small-title {
+            font-family: $font-primary;
+            font-size: 1em;
+            letter-spacing: 1px;
+            display: block;
+        }
+
+        .hero-title {
+            display: inline-block;            
+            font-weight: 700;
+            letter-spacing: 1px;            
+            font-family: acumin-pro-wide, sans-serif;
+            font-size: 2.2em;
+            line-height: 1.4em;
+        }
+    }
+}
+
+.section {
+    position: relative;
+
+    &--title {
+        font-family: 'acumin-pro-wide', sans-serif;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+
+        position: sticky;
+        top: 78px;
+        background: rgba(255,255,255,1);
+        font-size: 3.5em;
+    }
+}
