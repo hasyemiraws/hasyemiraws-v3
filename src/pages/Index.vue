@@ -21,7 +21,7 @@
 
 <page-query>
 query {
-    allPost {
+    allPost(limit: 9) {
         totalCount
         edges {
             node {

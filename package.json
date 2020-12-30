@@ -10,7 +10,9 @@
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.4",
     "gridsome": "^0.7.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
+    "smooth-scrollbar": "^8.5.3",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
+    "vanilla-lazyload": "^17.3.0"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^3.1.3",

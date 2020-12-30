@@ -1,3 +1,5 @@
 <template>
-    <p>This is a post template</p>
+    <Layout>
+        <p>This is a post template</p>
+    </Layout>
 </template>

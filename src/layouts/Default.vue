@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-wrapper">
+  <div class="layout-wrapper mx-10 md:mx-20 lg:mx-auto">
     <Header/>
     <div class="main">
       <slot />
