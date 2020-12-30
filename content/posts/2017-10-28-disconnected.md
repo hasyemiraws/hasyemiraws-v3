@@ -7,7 +7,6 @@ categories: thoughts
 description: Sebulan lalu gue tantang diri gue sendiri untuk melepaskan diri dari social media selama sebulan. I made it. (Well i cheated tho, once). So gimana rasanya? apa efeknya setelah sebulan? dan kenapa gue ngelakuin itu?
 author: Hasyemi Rafsanjani Asyari
 featured_image: ../../src/assets/images/post/disconnect.jpg
-image: /assets/images/post/disconnect.jpg
 excerpt_separator: <!--more-->
 ---
 

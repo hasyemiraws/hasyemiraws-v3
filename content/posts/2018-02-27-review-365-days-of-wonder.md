@@ -9,7 +9,6 @@ date:   2018-02-27 00:00:00 +0800
 description: Untuk yang sudah baca buku Wonder sebelumnya, pasti akan mengenal dan juga penasaran sama buku satu ini. 365 Days of Wonder adalah salah satu buku dari koleksi seri Wonder dari R. J. Palacio. Beberapa buku lainnya adalah The Julian Chapter, Pluto A Wonder Story, Shingaling A Wonder Story yang semua menjadi satu judul Auggie & Me, lalu ada juga We're All Wonders. 
 author: Hasyemi Rafsanjani Asyari
 featured_image: ../../src/assets/images/post/365-wonder/cover.jpg
-image: /assets/images/post/365-wonder/cover.jpg
 excerpt_separator: <!--more-->
 ---
 

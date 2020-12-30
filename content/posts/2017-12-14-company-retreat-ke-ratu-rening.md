@@ -8,7 +8,6 @@ categories: travel
 description: Yeay, tiba saatnya menuju penghujung tahun, saatnya melepas beban, melepas stress dari semua pekerjaan, mari bersenang-senang! Kembali ke alam! And we had so much fun together! Chill out di resort bernuansa alam, trekking ke air terjun dan water rafting!
 author: Hasyemi Rafsanjani Asyari
 featured_image: ../../src/assets/images/post/outing/cover.jpg
-image: /assets/images/post/outing/cover.jpg
 excerpt_separator: <!--more-->
 ---
 

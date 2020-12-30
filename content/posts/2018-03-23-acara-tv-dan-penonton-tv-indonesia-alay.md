@@ -8,7 +8,6 @@ categories: thoughts
 description: Acara TV Indonesia itu kebanyakan alay, penontonnya alay, artisnya juga alay. Apa iya?
 author: Hasyemi Rafsanjani Asyari
 featured_image: ../../src/assets/images/post/tv.jpg
-image: /assets/images/post/tv.jpg
 excerpt_separator: <!--more-->
 ---
 

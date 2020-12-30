@@ -12,7 +12,6 @@ date:   2017-12-24 18:00:00 +0800
 description: Wonder adalah buku novel bergenre anak-anak karya dari R. J. Palacio, bercerita kisah tentang Auggie, seorang anak yang mempunyai kelainan pada wajahnya dimana ia memulai membuka dan memberanikan diri keluar dari zona nyamannya sendiri, keluar dan menghadapi kehidupan nyata dengan keadaan serta perbedaan yang ia miliki dan juga bercerita tentang dunia yang mengitarinya. 
 author: Hasyemi Rafsanjani Asyari
 featured_image: ../../src/assets/images/post/wonder/wonder-cover-post.png
-image: /assets/images/post/wonder/wonder-cover-post.png
 excerpt_separator: <!--more-->
 ---
 

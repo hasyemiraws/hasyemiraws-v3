@@ -8,7 +8,6 @@ categories: thoughts
 description: Review asal-asalan adalah segmen konten yang baru yang akan gue buat di blog ini. Karena gue pribadi suka nonton film, dan terkadang gatel untuk nulis kesan gue terhadap film itu. Kenapa asal-asalan karena gue bukan ahli mengulas dan mengkritik yang profesional, jadi gue tuliskan sesuka gue dan ini adalah penilaian pribadi/subjektif dari gue. Tulisan pertama untuk Review asal-asalan adalah Film Black Panther
 author: Hasyemi Rafsanjani Asyari
 featured_image: ../../src/assets/images/post/black-panther/cover.jpg
-image: /assets/images/post/black-panther/cover.jpg
 excerpt_separator: <!--more-->
 ---
 

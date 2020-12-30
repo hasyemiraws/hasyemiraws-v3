@@ -10,7 +10,6 @@ tags: featured
 description: Avengers Infinity War is the 19th movie of the MCU franchise, focus on Thanos quest on his mission collecting all the Infinity Stones to help him wipe out half of the universe. This is my no spoiler review for it
 author: Hasyemi Rafsanjani Asyari
 featured_image: ../../src/assets/images/post/infinity-war/cover.jpg
-image: /assets/images/post/infinity-war/cover.jpg
 excerpt_separator: <!--more-->
 ---
 
