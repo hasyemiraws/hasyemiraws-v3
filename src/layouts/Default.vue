@@ -1,6 +1,5 @@
 <template>
   <div class="layout-wrapper mx-10 md:mx-20 lg:mx-auto">
-    <Header/>
     <div class="main">
       <slot />
     </div>
@@ -8,13 +7,7 @@
 </template>
 
 <script>
-import Header from "./Header";
-
-export default {
-  components: {
-    Header
-  }
-}
+export default {}
 </script>
 
 <style>
@@ -33,7 +26,6 @@ body {
 }
 
 .main {
-  height: 100%;
   padding-top: 80px;
 }
 </style>

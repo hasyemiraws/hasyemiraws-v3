@@ -1,5 +1,5 @@
 <template>
-    <header class="fixed w-full z-10 bg-white left-0 top-0 py-2.5">
+    <header class="fixed w-full z-10 bg-white left-0 top-0">
         <div class="container mx-auto max-w-screen-xl">
             <div class="flex justify-between items-center">
             <span class="filler"></span>
@@ -15,6 +15,11 @@
 </template>
 
 <style scoped>
+
+header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
 .logo-type {
 	font-family: acumin-pro-wide, sans-serif;

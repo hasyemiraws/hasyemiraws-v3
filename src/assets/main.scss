@@ -1,6 +1,7 @@
 @import "./css/_variables.scss";
 @import "./css/_base.scss";
 @import "./css/_typography.scss";
+@import "./css/_font-awesome.scss";
 
 @tailwind base;
 @tailwind components;
@@ -8,7 +9,7 @@
 
 .hero {
     &--intro {
-        height: 70%;        
+        height: 60vh;        
         display: flex;   
         justify-content: flex-start;
         align-items: center;
@@ -33,17 +34,20 @@
     }
 }
 
+.container--full-width {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    width: 100vw;
+}
+
 .section {
     position: relative;
+    max-width: 1080px;
 
     &--title {
         font-family: 'acumin-pro-wide', sans-serif;
         font-weight: 700;
         letter-spacing: 1.5px;
-
-        position: sticky;
-        top: 78px;
-        background: rgba(255,255,255,1);
         font-size: 3.5em;
     }
 }

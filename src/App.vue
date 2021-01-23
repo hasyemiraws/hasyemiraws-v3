@@ -1,5 +1,9 @@
 <template>
-  <router-view />
+  <div>
+    <Header/>
+    <router-view />
+    <Footer/>
+  </div>
 </template>
 
 <static-query>
@@ -12,7 +16,14 @@ query {
 </static-query>
 
 <script>
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
 export default {
+  components: {
+    Header,
+    Footer
+  },
   metaInfo() {
     return {
       title: this.$static.metadata.siteName,
