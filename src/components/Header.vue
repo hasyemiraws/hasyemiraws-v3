@@ -3,10 +3,10 @@
         <div class="container mx-auto max-w-screen-xl">
             <div class="flex justify-between items-center">
             <span class="filler"></span>
-            <a href="https://hasyemiraws.com" class="justify-self-center">
+            <a href="https://hasyemiraws.com" class="justify-self-center type-link">
                 <span class="logo-type">hraws</span>
             </a>
-            <span>
+            <span class="hamburger-menu">
                 <hamburger-menu/>    
             </span>
             </div>
@@ -17,8 +17,12 @@
 <style scoped>
 
 header {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+header.scrolled > div, header.scrolled > div > div {
+    height: 50px;
 }
 
 .logo-type {
@@ -26,7 +30,17 @@ header {
 	font-style: normal;
 	font-weight: 700;
 	letter-spacing: 1px;
-	font-size: 24px;
+    font-size: 28px;
+}
+
+.type-link, .hamburger-menu {
+    -webkit-transition: transform 0.4s ease;
+    transition: transform 0.4s ease;
+}
+
+header.scrolled .type-link,
+header.scrolled .hamburger-menu {
+    transform: scale(0.8);
 }
 
 .filler {

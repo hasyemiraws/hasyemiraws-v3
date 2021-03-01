@@ -24,6 +24,9 @@ export default {
     Header,
     Footer
   },
+  mounted() {
+    require('~/assets/js/main.js');
+  },
   metaInfo() {
     return {
       title: this.$static.metadata.siteName,

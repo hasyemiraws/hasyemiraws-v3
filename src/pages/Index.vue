@@ -12,13 +12,13 @@
         </h1>
       </div>    
     </section>
-    <section class="container section pb-10">
-      <h1 class="section--title">/BLOG</h1>
+    <section class="container section pb-10 first-section">
+      <h1 class="section--title">Blogs/</h1>
       <BlogList :pages="$page.allPost.edges" />
     </section>
-    <section class="container--full-width py-10">
+    <!-- <section class="container--full-width py-10">
       <div class="container section mx-auto">
-        <h1 class="section--title">/YOUTUBE</h1>
+        <h1 class="section--title">Youtube/</h1>
         <div class="grid grid-cols-4 gap-10">
           <figure :class="{'col-span-3 row-span-2': idx == 0}" v-for="(video, idx) in $page.allYoutube.edges" :key="video.node.id" class="overflow-hidden">
               <g-link :to="video.node.path"><img data-object-fit class="lazy w-full rounded-lg" :data-src="video.node.featured_image"/></g-link>
@@ -38,8 +38,8 @@
           </figure>
         </div>
       </div>
-    </section>
-    <PlaygroundHome/>
+    </section> -->
+    <!-- <PlaygroundHome/> -->
   </Layout>
 </template>
 

@@ -1,15 +1,21 @@
-$(function () {
-	$(window).on("scroll", function () {
-		if (!$('.content--section').length) return true;
+const headerEl = document.querySelector("header");
+const options = {
+	root: null,
+	rootMargin: '0px',
+	treshold: 0
+}
 
-		if ($(window).scrollTop() >= $('.content--section').offset().top - 40) {
-			if (!$('.header__top').hasClass('header__top__scroll')) {
-				$('.header__top').addClass('header__top__scroll');
-			}
+function handleIntersection(entries, observer) {
+	entries.forEach(entry => {
+		if (!entry.isIntersecting)	{
+			headerEl.classList.add('scrolled');
 		} else {
-			if ($('.header__top').hasClass('header__top__scroll')) {
-				$('.header__top').removeClass('header__top__scroll').removeClass('header-sticky');
-			}
+			headerEl.classList.remove('scrolled');
 		}
-	});
+	})
+}
+
+window.addEventListener('load', (e) => {
+	  let observer = new IntersectionObserver(handleIntersection, options);  
+	  observer.observe(document.querySelector(".hero--intro .hero--label"));
 });

@@ -1,7 +1,5 @@
 require('~/assets/main.scss')
 import DefaultLayout from '~/layouts/Default.vue'
-window.$ = require( "jquery" );
-require('~/assets/js/main.js');
 
 export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
