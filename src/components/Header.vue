@@ -3,9 +3,9 @@
         <div class="container mx-auto max-w-screen-xl">
             <div class="flex justify-between items-center">
             <span class="filler"></span>
-            <a href="https://hasyemiraws.com" class="justify-self-center type-link">
+            <g-link to="/" class="justify-self-center type-link">
                 <span class="logo-type">hraws</span>
-            </a>
+            </g-link>
             <span class="hamburger-menu">
                 <hamburger-menu/>    
             </span>

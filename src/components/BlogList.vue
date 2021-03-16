@@ -3,7 +3,7 @@
         <div class="grid grid-col-3 grid-masonry gap-12 post">
             <template v-for="(page, idx) in pages">
                 <figure class="overflow-hidden mb-20" v-if="idx < 3" :key="page.node.id">
-                    <g-link :to="page.node.path"><img data-object-fit class="lazy rounded-lg w-full" :data-src="page.node.featured_image"/></g-link>
+                    <g-link :to="page.node.path"><img data-object-fit class="lazy rounded-lg w-full" :data-src="page.node.featured_image.path"/></g-link>
                     <figcaption class="post--label">                                                 
                         <span class="post--category">
                             <a href="#">
@@ -23,7 +23,7 @@
         <div class="masonry">
             <template v-for="(page, idx) in pages">
                 <figure class="overflow-hidden mb-20" :key="page.node.id" v-if="idx > 2">
-                    <g-link :to="page.node.path"><img data-object-fit class="lazy w-full rounded-lg" :data-src="page.node.featured_image"/></g-link>
+                    <g-link :to="page.node.path"><img data-object-fit class="lazy w-full rounded-lg" :data-src="page.node.featured_image.path"/></g-link>
                     <figcaption class="post--label">                                                 
                         <span class="post--category">
                             <a href="#">

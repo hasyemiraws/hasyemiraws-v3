@@ -40,6 +40,9 @@ module.exports = {
       }
     }
   ],
+  templates: {
+    BlogPost: '/blog/:slug/'
+  },
   css: {
     loaderOptions: {
         postcss: {
