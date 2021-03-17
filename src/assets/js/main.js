@@ -17,5 +17,5 @@ function handleIntersection(entries, observer) {
 
 window.addEventListener('load', (e) => {
 	  let observer = new IntersectionObserver(handleIntersection, options);  
-	  observer.observe(document.querySelector(".hero--intro .hero--label"));
+	  observer.observe(document.querySelector(".hero--intro .hero--label, .article--post"));
 });

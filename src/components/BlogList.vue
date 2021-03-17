@@ -1,44 +1,53 @@
 <template>
     <section class="container">
-        <div class="grid grid-col-3 grid-masonry gap-12 post">
-            <template v-for="(page, idx) in pages">
-                <figure class="overflow-hidden mb-20" v-if="idx < 3" :key="page.node.id">
-                    <g-link :to="page.node.path"><img data-object-fit class="lazy rounded-lg w-full" :data-src="page.node.featured_image.path"/></g-link>
-                    <figcaption class="post--label">                                                 
-                        <span class="post--category">
-                            <a href="#">
-                                category
-                            </a>
-                        </span>
+        <div class="grid grid-cols-3 gap-10">
+            <div class="col-span-2">
+                <div class="grid grid-cols-2 gap-10">
+                    <template v-for="(page, idx) in pages">
+                        <div v-if="idx < 5" :key="page.node.id" :class="{'col-span-2': idx == 0}">
+                            <figure class="overflow-hidden mb-20">
+                                <g-link :to="page.node.path" :class="{'aspect-ratio-1-1': idx > 0}"><img data-object-fit class="lazy rounded-lg w-full" :data-src="page.node.featured_image.path"/></g-link>
+                                <figcaption class="post--label">                                                 
+                                    <span class="post--category">
+                                        <a href="#">
+                                            category
+                                        </a>
+                                    </span>
 
-                        <g-link :to="page.node.path">
-                            <h3 class="post--title">                              
-                                {{ page.node.title }}                              
-                            </h3>
-                        </g-link>          
-                    </figcaption>
-                </figure>
-            </template>
+                                    <g-link :to="page.node.path">
+                                        <h3 class="post--title">                              
+                                            {{ page.node.title }}                              
+                                        </h3>
+                                    </g-link>          
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <div>
+                <template v-for="(page, idx) in pages">
+                    <figure class="overflow-hidden mb-20" :key="page.node.id" v-if="idx > 4">
+                        <g-link :to="page.node.path"><img data-object-fit class="lazy w-full rounded-lg" :data-src="page.node.featured_image.path"/></g-link>
+                        <figcaption class="post--label">                                                 
+                            <span class="post--category">
+                                <a href="#">
+                                    category
+                                </a>
+                            </span>
+
+                            <g-link :to="page.node.path">
+                                <h3 class="post--title">                              
+                                    {{ page.node.title }}                              
+                                </h3>
+                            </g-link>          
+                        </figcaption>
+                    </figure>
+                </template>
+            </div>
         </div>
         <div class="masonry">
-            <template v-for="(page, idx) in pages">
-                <figure class="overflow-hidden mb-20" :key="page.node.id" v-if="idx > 2">
-                    <g-link :to="page.node.path"><img data-object-fit class="lazy w-full rounded-lg" :data-src="page.node.featured_image.path"/></g-link>
-                    <figcaption class="post--label">                                                 
-                        <span class="post--category">
-                            <a href="#">
-                                category
-                            </a>
-                        </span>
-
-                        <g-link :to="page.node.path">
-                            <h3 class="post--title">                              
-                                {{ page.node.title }}                              
-                            </h3>
-                        </g-link>          
-                    </figcaption>
-                </figure>
-            </template>
+            
         </div>
         <span class="post--more">
             <a href="#">
@@ -72,46 +81,18 @@ export default {
 </script>
 
 <style>
-    .grid-masonry figure:nth-child(1) {
-        grid-column-start: 1;
-        grid-column-end: 3;
-        /* grid-row-start: 1; */
-        /* grid-row-end: 2; */
-        grid-row: span 2 / span 2;
-    }
-    .grid-masonry figure:nth-child(2) {
-        grid-column-start: 3;
+    .aspect-ratio-1-1 {
+        position: relative;
+        display: block;
+        padding-top: 100%;
+        width: 100%;
     }
 
-    .masonry {
-        column-count: 3;
-        column-gap: 3rem;
-    }
-
-    .masonry.first {
-        column-count: 2;
-    }
-
-    .masonry figure {
-        -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
-          page-break-inside: avoid; /* Firefox */
-               break-inside: avoid; /* IE 10+ */
-    }
-
-    .masonry figure:first-child {
-        margin-top: -120px
-    }
-
-    .masonry figure:nth-child(3) {
-        padding-top: 40px
-    }
-
-    .masonry figure:nth-child(5) {
-        transform: translate3d(0, -40px, 0);
-    }
-
-    .masonry figure:last-child {
-        margin-bottom: 0px;
+    .aspect-ratio-1-1 img {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        object-fit: cover;
     }
 
     .post--label {

@@ -78,43 +78,19 @@
 
 <page-query>
 query {
-    allBlogPost(limit: 9) {
-      edges {
-          node {
-              id
-              title
-              description
-              featured_image {
-                path
-              }
-              path
-          }
-      }
-    }
-
-    allPost(limit: 9) {
-      edges {
-          node {
-              id
-              title
-              path
-              description
-              featured_image
-          }
-      }
-    }
-
-    allYoutube(limit: 4) {
-      edges {
+  allBlogPost(limit: 8) {
+    edges {
         node {
-          id
-          title
-          path
-          description
-          featured_image
+            id
+            title
+            description
+            featured_image {
+              path
+            }
+            path
         }
-      }
     }
+  }
 }
 </page-query>
 
