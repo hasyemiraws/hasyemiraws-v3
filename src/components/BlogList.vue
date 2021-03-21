@@ -28,7 +28,7 @@
             <div class="grid grid-cols-2 gap-10 md:grid-cols-1 md:gap-10">
                 <template v-for="(page, idx) in pages">
                     <figure class="overflow-hidden mb-14" :key="page.node.id" v-if="idx > 4">
-                        <g-link :to="page.node.path" :class="{'aspect-ratio-1-1': checkWindowSize() < 481}"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
+                        <g-link :to="page.node.path" class="aspect-ratio-1-1-sm"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
                         <figcaption class="post--label">                                                 
                             <span class="post--category">
                                 <a href="#">
@@ -74,12 +74,6 @@ import LazyLoad from 'vanilla-lazyload'
 
 export default {
     props: ['pages'],
-    methods: {
-        checkWindowSize() {
-            console.log('test', window.innerWidth)
-            return window.innerWidth
-        }
-    },
     mounted() {
         var lazyLoadInstance = new LazyLoad({});
     }
@@ -87,20 +81,6 @@ export default {
 </script>
 
 <style>
-    .aspect-ratio-1-1 {
-        position: relative;
-        display: block;
-        padding-top: 100%;
-        width: 100%;
-    }
-
-    .aspect-ratio-1-1 img {
-        position: absolute;
-        height: 100%;
-        top: 0;
-        object-fit: cover;
-    }
-
     .post--label {
         margin-top: 10px
     }

@@ -63,3 +63,33 @@
         font-size: 3.5em;
     }
 }
+
+.aspect-ratio-1-1 {
+    position: relative;
+    display: block;
+    padding-top: 100%;
+    width: 100%;
+}
+
+.aspect-ratio-1-1 img {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    object-fit: cover;
+}
+
+@include breakpoint('mobile') {
+    .aspect-ratio-1-1-sm  {
+        position: relative;
+        display: block;
+        padding-top: 100%;
+        width: 100%;
+    }
+
+    .aspect-ratio-1-1-sm img {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        object-fit: cover;
+    }
+}
