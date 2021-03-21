@@ -2,6 +2,7 @@
 @import "./css/_base.scss";
 @import "./css/_typography.scss";
 @import "./css/_font-awesome.scss";
+@import "./css/_mixins.scss";
 
 @tailwind base;
 @tailwind components;
@@ -16,13 +17,6 @@
     }
 
     &--label {
-        .small-title {
-            font-family: $font-primary;
-            font-size: 1em;
-            letter-spacing: 1px;
-            display: block;
-        }
-
         .hero-title {
             display: inline-block;            
             font-weight: 700;
@@ -30,6 +24,24 @@
             font-family: acumin-pro-wide, sans-serif;
             font-size: 2.2em;
             line-height: 1.4em;
+            position: relative;
+
+            .about-me--more {
+                position: absolute;
+                top: 60%;
+                right: -65px;
+                padding: 0;
+            }
+
+            @include breakpoint('mobile') {
+                font-size: 1.4em;
+
+                .about-me--more {
+                    left: -20px;
+                    right: auto;
+                    top: 75%;
+                }
+            }
         }
     }
 }

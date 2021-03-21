@@ -1,12 +1,12 @@
 <template>
     <section class="container">
-        <div class="grid grid-cols-3 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 md:gap-10">
             <div class="col-span-2">
                 <div class="grid grid-cols-2 gap-10">
                     <template v-for="(page, idx) in pages">
                         <div v-if="idx < 5" :key="page.node.id" :class="{'col-span-2': idx == 0}">
-                            <figure class="overflow-hidden mb-20">
-                                <g-link :to="page.node.path" :class="{'aspect-ratio-1-1': idx > 0}"><img data-object-fit class="lazy rounded-lg w-full" :data-src="page.node.featured_image.path"/></g-link>
+                            <figure class="overflow-hidden mb-14">
+                                <g-link :to="page.node.path" :class="{'aspect-ratio-1-1': idx > 0}"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
                                 <figcaption class="post--label">                                                 
                                     <span class="post--category">
                                         <a href="#">
@@ -15,7 +15,7 @@
                                     </span>
 
                                     <g-link :to="page.node.path">
-                                        <h3 class="post--title">                              
+                                        <h3 class="post--title text-lg md:text-xl">                              
                                             {{ page.node.title }}                              
                                         </h3>
                                     </g-link>          
@@ -25,10 +25,10 @@
                     </template>
                 </div>
             </div>
-            <div>
+            <div class="grid grid-cols-2 gap-10 md:grid-cols-1 md:gap-10">
                 <template v-for="(page, idx) in pages">
-                    <figure class="overflow-hidden mb-20" :key="page.node.id" v-if="idx > 4">
-                        <g-link :to="page.node.path"><img data-object-fit class="lazy w-full rounded-lg" :data-src="page.node.featured_image.path"/></g-link>
+                    <figure class="overflow-hidden mb-14" :key="page.node.id" v-if="idx > 4">
+                        <g-link :to="page.node.path" :class="{'aspect-ratio-1-1': checkWindowSize() < 481}"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
                         <figcaption class="post--label">                                                 
                             <span class="post--category">
                                 <a href="#">
@@ -37,7 +37,7 @@
                             </span>
 
                             <g-link :to="page.node.path">
-                                <h3 class="post--title">                              
+                                <h3 class="post--title text-lg md:text-xl">                              
                                     {{ page.node.title }}                              
                                 </h3>
                             </g-link>          
@@ -74,6 +74,12 @@ import LazyLoad from 'vanilla-lazyload'
 
 export default {
     props: ['pages'],
+    methods: {
+        checkWindowSize() {
+            console.log('test', window.innerWidth)
+            return window.innerWidth
+        }
+    },
     mounted() {
         var lazyLoadInstance = new LazyLoad({});
     }
@@ -106,10 +112,8 @@ export default {
 
     .post--title {
         margin-top: 0px;
-        font-size: 1.3em;
         font-family: acumin-pro-semi-condensed, sans-serif;
-        font-weight: 700;
-        
+        font-weight: 700;    
     }
 
     .post--more {
@@ -138,7 +142,7 @@ export default {
     }
 
     #circular {
-        animation: rotata 10s infinite linear;
+        animation: rotata 8s infinite linear;
     }
 
     @keyframes rotata {

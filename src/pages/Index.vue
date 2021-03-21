@@ -8,7 +8,7 @@
               professional overthinker.<br/>
               high functioning introvert.
           </span>
-          <span class="post--more">
+          <span class="post--more about-me--more">
             <a href="#">
               <g-image
                 class="post--more-arrow"
@@ -31,10 +31,10 @@
                 <text
                   id="brand--text"
                   fill="#000"
-                  font-size="12"
+                  font-size="10"
                   font-family="apercu medium"
                   font-weight="bold"
-                  letter-spacing="12"
+                  letter-spacing="10"
                   width="100"
                 >
                   <textPath xlink:href="#circle">MORE ABOUT ME</textPath>

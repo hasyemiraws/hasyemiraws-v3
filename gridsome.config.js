@@ -22,6 +22,7 @@ if (process.env.NODE_ENV === 'production') postcssPlugins.push(purgecss(require(
 module.exports = {
   siteName: 'hasyemiraws',
   siteDescription: "High Functional Introvert. Full Time Learner. Part time stalker.",
+  icon: './src/hraws-favicon.png',
   plugins: [
     {
       use: '@gridsome/source-filesystem',
