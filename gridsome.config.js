@@ -39,6 +39,9 @@ module.exports = {
         typeName: 'Youtube',
         route: '/videos/:slug'
       }
+    },
+    {
+      use: 'gridsome-plugin-seo'
     }
   ],
   templates: {

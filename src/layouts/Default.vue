@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-wrapper mx-10 md:mx-20 lg:mx-auto">
+  <div class="layout-wrapper mx-7 md:mx-20 xl:mx-auto">
     <div class="main">
       <slot />
     </div>
@@ -17,12 +17,6 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.5;
-}
-
-.layout-wrapper {
-  max-width: 1080px;
-  margin: 0 auto;
-  height: 100%;
 }
 
 .main {

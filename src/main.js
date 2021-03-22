@@ -7,6 +7,11 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('Layout', DefaultLayout)
   Vue.use(VueDisqus)
 
+  Vue.filter('lowercase', function (value) {
+    if (!value) return ''
+    return value.toLowerCase()
+  })
+
   head.link.push(
     {
       rel: "stylesheet",

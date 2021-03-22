@@ -8,17 +8,19 @@
                             <figure class="overflow-hidden mb-14">
                                 <g-link :to="page.node.path" :class="{'aspect-ratio-1-1': idx > 0}"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
                                 <figcaption class="post--label">                                                 
-                                    <span class="post--category">
+                                    <span class="post--category" :key="cat" v-for="cat in page.node.category">
                                         <a href="#">
-                                            category
+                                            {{ cat | lowercase }}
                                         </a>
                                     </span>
 
                                     <g-link :to="page.node.path">
-                                        <h3 class="post--title text-lg md:text-xl">                              
+                                        <h3 class="post--title text-md md:text-xl">                              
                                             {{ page.node.title }}                              
                                         </h3>
-                                    </g-link>          
+                                    </g-link>
+
+                                    <span class="post--date">{{ page.node.published_date }}</span>          
                                 </figcaption>
                             </figure>
                         </div>
@@ -30,9 +32,9 @@
                     <figure class="overflow-hidden mb-14" :key="page.node.id" v-if="idx > 4">
                         <g-link :to="page.node.path" class="aspect-ratio-1-1-sm"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
                         <figcaption class="post--label">                                                 
-                            <span class="post--category">
+                            <span class="post--category" :key="cat" v-for="cat in page.node.category">
                                 <a href="#">
-                                    category
+                                    {{ cat | lowercase}}
                                 </a>
                             </span>
 
@@ -41,6 +43,8 @@
                                     {{ page.node.title }}                              
                                 </h3>
                             </g-link>          
+                            
+                            <span class="post--date">{{ page.node.published_date }}</span>          
                         </figcaption>
                     </figure>
                 </template>
@@ -88,12 +92,26 @@ export default {
     .post--category {
         font-size: 13px;
         font-family: 'apercu medium', sans-serif;
+        display: inline-block;
+        background: #202020;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 10px;
+    }
+
+    .post--category + .post--category {
+        margin-left: 5px;
     }
 
     .post--title {
         margin-top: 0px;
         font-family: acumin-pro-semi-condensed, sans-serif;
         font-weight: 700;    
+    }
+
+    .post--date {
+        font-family: 'apercu medium', sans-serif;
+        font-size: 14px;
     }
 
     .post--more {

@@ -12,6 +12,7 @@
     "axios": "^0.21.1",
     "babel-runtime": "^6.26.0",
     "gridsome": "^0.7.0",
+    "gridsome-plugin-seo": "^1.0.1",
     "jquery": "^3.5.1",
     "smooth-scrollbar": "^8.5.3",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",

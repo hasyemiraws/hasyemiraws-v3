@@ -83,7 +83,9 @@ query {
         node {
             id
             title
+            category
             description
+            published_date
             featured_image {
               path
             }
