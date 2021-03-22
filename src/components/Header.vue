@@ -1,16 +1,38 @@
 <template>
-    <header class="fixed w-full z-10 bg-white left-0 top-0">
-        <div class="container mx-auto max-w-screen-xl">
+    <header ref="header" class="fixed w-full z-10 bg-white left-0 top-0">
+        <nav class="menu__overlay animate__animated">
+            <div class="menu__overlay--container">
+            <ul class="menu__list-link">
+                <li>
+                <a href="#" data-attr-menu="toggle" title="Blog">Blog</a>
+                <ul class="menu__list-link" data-attr-menu="dropdown_menu">
+                    <li><a href="#" data-attr-menu="back" title="Back to main">&lt; Back</a></li>
+                    <li><a href="/dev/" title="Dev">Dev</a></li>
+                    <li><a href="/book/" title="Book">Book</a></li>
+                    <li><a href="/travel/" title="Travel">Travel</a></li>
+                    <li><a href="/thoughts/" title="Thoughts">Thoughts</a></li>
+                    <li><a href="/blog/" title="Blog">Browse All</a></li>
+                </ul>
+                </li>
+                <li><a href="#" title="Coming Soon">Portofolio</a></li>
+                <li><a href="#" title="Coming Soon">Resources</a></li>
+                <li><a href="#" title="Coming Soon">Playground</a></li>
+                <li><a href="/about/" title="About">About</a></li>
+            </ul>
+            </div>
+        </nav>
+
+        <div class="container mx-auto max-w-screen-xl z-10 relative">
             <div class="flex justify-between items-center">
             <span class="filler"></span>
             <g-link to="/" class="justify-self-center type-link">
                 <span class="logo-type">hraws</span>
             </g-link>
-            <span class="hamburger-menu">
+            <span class="hamburger-menu" @click="showMenu">
                 <hamburger-menu/>    
             </span>
             </div>
-        </div>    
+        </div>
     </header>
 </template>
 
@@ -31,6 +53,10 @@ header.scrolled > div, header.scrolled > div > div {
 	font-weight: 700;
 	letter-spacing: 1px;
     font-size: 28px;
+}
+
+.menu-active .logo-type {
+    color: #fff;
 }
 
 .type-link, .hamburger-menu {
@@ -54,6 +80,43 @@ import HamburgerMenu from "./HamburgerMenu";
 export default {
     components: {
         HamburgerMenu
+    },
+    methods: {
+        showMenu() {
+            let header = this.$refs["header"];
+            let menuOverlay = document.querySelector('.menu__overlay');
+            const windowWidth = window.innerWidth;
+
+            let inAnimation = "animate__slideInRight"
+            let outAnimation = "animate__slideOutRight"
+
+            if (windowWidth < 730) {
+                inAnimation = "animate__fadeIn"
+                outAnimation = "animate__fadeOut"
+            }
+
+            const hideMenu = function() {
+                header.classList.remove("menu-active")
+                menuOverlay.style.display = "none";
+                
+                menuOverlay.removeEventListener("webkitAnimationEnd", hideMenu);
+                menuOverlay.removeEventListener("animationend", hideMenu);
+            }
+
+            if (header.classList.contains('menu-active')) {
+                menuOverlay.classList.add(outAnimation)
+                menuOverlay.classList.remove(inAnimation)
+
+                menuOverlay.addEventListener("webkitAnimationEnd", hideMenu);
+                menuOverlay.addEventListener("animationend", hideMenu);
+
+            } else {
+                menuOverlay.style.display = "block";
+                menuOverlay.classList.remove(outAnimation)
+                menuOverlay.classList.add(inAnimation)
+                header.classList.add("menu-active")
+            }   
+        }
     }
 }
 </script>

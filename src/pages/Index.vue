@@ -78,7 +78,7 @@
 
 <page-query>
 query {
-  allBlogPost(limit: 8) {
+  allBlogPost(limit: 9, sortBy: "date") {
     edges {
         node {
             id

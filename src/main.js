@@ -1,6 +1,7 @@
 require('~/assets/main.scss')
 import DefaultLayout from '~/layouts/Default.vue'
 import VueDisqus from 'vue-disqus'
+import 'animate.css';
 
 export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
