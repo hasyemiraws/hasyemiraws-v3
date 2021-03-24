@@ -21,10 +21,21 @@ function addStyleResource (rule) {
 if (process.env.NODE_ENV === 'production') postcssPlugins.push(purgecss(require('./purgecss.config.js')))
 
 module.exports = {
+  siteUrl: 'https://hasyemiraws.com',
   siteName: 'hasyemiraws',
   siteDescription: "High Functional Introvert. Full Time Learner. Part time stalker.",
   icon: './src/hraws-favicon.png',
   plugins: [
+    {
+      use: '@gridsome/plugin-sitemap',
+      options: {}
+    },
+    {
+      use: '@gridsome/plugin-google-analytics',
+      options: {
+        id: 'UA-108167393-1'
+      }
+    },
     {
       use: '@gridsome/source-filesystem',
       options: {
