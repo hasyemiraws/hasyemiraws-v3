@@ -6,6 +6,7 @@ const postcssPlugins = [
 ]
 
 const path = require('path')
+const { allowedNodeEnvironmentFlags } = require('process')
 
 function addStyleResource (rule) {
   rule.use('style-resource')
@@ -42,10 +43,37 @@ module.exports = {
     },
     {
       use: 'gridsome-plugin-seo'
+    },
+    {
+      use: "gridsome-plugin-i18n",
+      options: {
+        locales: [ // locales list
+          'in-id',
+          'en-us'
+        ],
+        pathAliases: { // path segment alias for each locales
+          'in-id': 'id',
+          'en-us': 'en'
+        },
+        fallbackLocale: 'in-id', // fallback language
+        defaultLocale: 'in-id', // default language
+        rewriteDefaultLanguage: false, // rewrite default locale, default: true
+      }
     }
   ],
   templates: {
-    BlogPost: '/blog/:slug/'
+    BlogPost: [{
+      path: (node) => {
+        return `/blog/${node.slug}`
+      }
+    }],
+    Categories: [
+      {
+        path: (node) => {
+          return `/categories/${node.slug}`
+        }
+      }
+    ]
   },
   css: {
     loaderOptions: {

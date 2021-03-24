@@ -13,6 +13,11 @@ export default function (Vue, { router, head, isClient }) {
     return value.toLowerCase()
   })
 
+  Vue.filter('uppercase', function (value) {
+    if (!value) return ''
+    return value.toUpperCase()
+  })
+
   head.link.push(
     {
       rel: "stylesheet",

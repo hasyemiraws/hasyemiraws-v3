@@ -4,9 +4,9 @@
             <div class="container container__post mt-20 max-w-2xl mx-auto">
                 
                 <div>
-                    <span class="article--category" :key="cat" v-for="cat in $page.blogPost.category">
+                    <span class="article--category">
                         <a href="#">
-                            {{ cat | lowercase }}
+                            {{ $page.blogPost.category.display | lowercase }}
                         </a>
                     </span>
                 </div>
@@ -40,7 +40,9 @@ query ($id: ID!) {
     description
     content
     author
-    category
+    category {
+        display
+    }
     published_date
     featured_image {
         path

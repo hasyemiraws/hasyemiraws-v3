@@ -1,7 +1,14 @@
 <template>
   <div>
     <Header/>
-    <router-view />
+      <transition
+      mode="out-in"
+      appear
+      enter-active-class="animate__animated animate__fadeIn animate__fast animatie__delay-2s"
+      leave-active-class="animate__animated animate__fadeOut animate__faster"
+      >
+        <router-view />
+      </transition>
     <Footer/>
   </div>
 </template>

@@ -13,6 +13,7 @@
     "axios": "^0.21.1",
     "babel-runtime": "^6.26.0",
     "gridsome": "^0.7.0",
+    "gridsome-plugin-i18n": "^1.6.0",
     "gridsome-plugin-seo": "^1.0.1",
     "jquery": "^3.5.1",
     "smooth-scrollbar": "^8.5.3",

@@ -78,12 +78,14 @@
 
 <page-query>
 query {
-  allBlogPost(limit: 9, sortBy: "date") {
+  allBlogPost(limit: 9, sortBy: "published_date") {
     edges {
         node {
             id
             title
-            category
+            category {
+              display
+            }
             description
             published_date
             featured_image {
@@ -107,6 +109,3 @@ export default {
   components: {BlogList, PlaygroundHome}
 }
 </script>
-
-<style>
-</style>

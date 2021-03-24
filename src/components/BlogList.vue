@@ -8,9 +8,9 @@
                             <figure class="overflow-hidden mb-14">
                                 <g-link :to="page.node.path" :class="{'aspect-ratio-1-1': idx > 0}"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
                                 <figcaption class="post--label">                                                 
-                                    <span class="post--category" :key="cat" v-for="cat in page.node.category">
+                                    <span class="post--category">
                                         <a href="#">
-                                            {{ cat | lowercase }}
+                                            {{ page.node.category.display | lowercase }}
                                         </a>
                                     </span>
 
@@ -32,9 +32,9 @@
                     <figure class="overflow-hidden mb-14" :key="page.node.id" v-if="idx > 4">
                         <g-link :to="page.node.path" class="aspect-ratio-1-1-sm"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
                         <figcaption class="post--label">                                                 
-                            <span class="post--category" :key="cat" v-for="cat in page.node.category">
+                            <span class="post--category">
                                 <a href="#">
-                                    {{ cat | lowercase}}
+                                    {{ page.node.category.display | lowercase}}
                                 </a>
                             </span>
 
@@ -53,8 +53,8 @@
         <div class="masonry">
             
         </div>
-        <span class="post--more">
-            <a href="#">
+        <span class="post--more" v-if="showMoreStories">
+            <g-link to="/all-post/">
             <g-image class="post--more-arrow" src="~/assets/images/right-arrow.svg" />
             <svg id="circular" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -68,7 +68,7 @@
                     <textPath xlink:href="#circle">MORE STORIES</textPath>
                 </text>
             </svg>
-            </a>
+            </g-link>
         </span>      
     </section>
 </template>
@@ -77,9 +77,15 @@
 import LazyLoad from 'vanilla-lazyload'
 
 export default {
-    props: ['pages'],
+    props: {
+        'pages': Array, 
+        'showMoreStories': {
+            type: Boolean,
+            default: true
+        }
+    },
     mounted() {
-        var lazyLoadInstance = new LazyLoad({});
+        new LazyLoad({});
     }
 }
 </script>
