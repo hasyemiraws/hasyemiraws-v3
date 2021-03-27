@@ -84,7 +84,8 @@ query {
             id
             title
             category {
-              display
+              name
+              path
             }
             description
             published_date

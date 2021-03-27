@@ -9,9 +9,9 @@
                                 <g-link :to="page.node.path" :class="{'aspect-ratio-1-1': idx > 0}"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
                                 <figcaption class="post--label">                                                 
                                     <span class="post--category">
-                                        <a href="#">
-                                            {{ page.node.category.display | lowercase }}
-                                        </a>
+                                        <g-link :to="page.node.category.path">
+                                            {{ page.node.category.name | lowercase }}
+                                        </g-link>
                                     </span>
 
                                     <g-link :to="page.node.path">
@@ -33,9 +33,9 @@
                         <g-link :to="page.node.path" class="aspect-ratio-1-1-sm"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
                         <figcaption class="post--label">                                                 
                             <span class="post--category">
-                                <a href="#">
-                                    {{ page.node.category.display | lowercase}}
-                                </a>
+                                <g-link :to="page.node.category.path">
+                                    {{ page.node.category.name | lowercase }}
+                                </g-link>
                             </span>
 
                             <g-link :to="page.node.path">

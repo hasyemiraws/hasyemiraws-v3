@@ -6,7 +6,7 @@
                 <div>
                     <span class="article--category">
                         <a href="#">
-                            {{ $page.blogPost.category.display | lowercase }}
+                            {{ $page.blogPost.category.name | lowercase }}
                         </a>
                     </span>
                 </div>
@@ -41,7 +41,7 @@ query ($id: ID!) {
     content
     author
     category {
-        display
+        name
     }
     published_date
     featured_image {
@@ -56,6 +56,33 @@ import LazyLoad from 'vanilla-lazyload'
 import VueMarkdown from 'vue-markdown'
 export default {
     metaInfo () {
+        const jsonld = {
+            "@type":"BlogPosting",
+            "image":this.$page.blogPost.featured_image.path,
+            "url":`https://hasyemiraws.com/${this.$route.fullPath}`,
+            "mainEntityOfPage":{
+                "@type":"WebPage",
+                "@id":`https://hasyemiraws.com/${this.$route.fullPath}`
+            },
+            "author":{
+                "@type":"Person",
+                "name":"Hasyemi Rafsanjani Asyari"
+            },
+            "description":this.$page.blogPost.description,
+            "headline":this.$page.blogPost.title,
+            "dateModified":this.$page.blogPost.published_date,
+            "datePublished":this.$page.blogPost.published_date,
+            "publisher":{
+                "@type":"Organization",
+                "logo":{
+                    "@type":"ImageObject",
+                    "url":"https://hasyemiraws.com/assets/static/hraws-favicon.ac8d93a.90497532acd41cd5a968e3b1f2196d2a.png"
+                },
+                "name":"Hasyemi Rafsanjani Asyari"
+            },
+            "@context":"https://schema.org"
+        }
+
         return this.$seo({
             title: this.$page.blogPost.title, 
             description: this.$page.blogPost.description,
@@ -67,10 +94,14 @@ export default {
                 title: this.$page.blogPost.title,
                 type: 'summary'
             },
-        })
+        }), {
+            script: [
+                { innerHTML: JSON.stringify(jsonld), type: 'application/ld+json' }
+            ]
+        }
     },
     mounted() {
-        var lazyLoadInstance = new LazyLoad({});
+        new LazyLoad({});
     },
     components: {
         VueMarkdown

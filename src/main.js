@@ -22,8 +22,14 @@ export default function (Vue, { router, head, isClient }) {
     {
       rel: "stylesheet",
       href: "https://use.typekit.net/npd1ibg.css"
+    }
+  )
+  
+  head.meta.push(
+    {
+      name: 'keywords',
+      content: 'hasyemiraws, blog, jurnal highly functioning introvert'
     },
-
     {
       name: 'author',
       content: "Hasyemi Rafsanjani Asyari"
@@ -40,6 +46,8 @@ export default function (Vue, { router, head, isClient }) {
     { property: "og:site_name", content: "hasyemiraws" },
     { name: "twitter:card", content: "summary" },
     { name: "twitter:site", content: "@hasyemiraws" },
-    { name: "twitter:creator", content: "Hasyemi Rafsanjani Asyari" }
+    { name: "twitter:creator", content: "Hasyemi Rafsanjani Asyari" },
+    { name: "robots", content: "index, follow" }
   )
+
 }

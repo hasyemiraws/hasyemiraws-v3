@@ -1,27 +1,29 @@
 <template>
     <Layout>
-        <div class="my-5">
-            <span class="category">
-                <g-link to="/all-post/">
-                    All Posts
-                </g-link>
-            </span>
-            <span class="category" :class="{'active': cat.node.name == $page.categories.name}" v-for="cat in $page.allCategories.edges" :key="cat.node.name">
-                <g-link :to="cat.node.path">
-                    {{ cat.node.name }}
-                </g-link>
-            </span>
-        </div>   
-        <h1 class="text-5xl my-10">{{ $page.categories.name | uppercase }}</h1> 
-        <section>
-            <BlogList :pages="$page.allBlogPost.edges" :show-more-stories="false" />
-            <Pager class="categories__navigation" :info="$page.allBlogPost.pageInfo"/>
-        </section>
+        <div>
+            <div class="my-5">
+                <span class="category">
+                    <g-link to="/all-post/">
+                        All Posts
+                    </g-link>
+                </span>
+                <span class="category" :class="{'active': cat.node.name == $page.categories.name}" v-for="cat in $page.allCategories.edges" :key="cat.node.name">
+                    <g-link :to="cat.node.path">
+                        {{ cat.node.name }}
+                    </g-link>
+                </span>
+            </div>   
+            <h1 class="text-5xl my-10">{{ $page.categories.name | uppercase }}</h1> 
+            <section>
+                <BlogList :pages="$page.allBlogPost.edges" :show-more-stories="false" />
+                <Pager class="categories__navigation" :info="$page.allBlogPost.pageInfo"/>
+            </section>
+        </div>
     </Layout>
 </template>
 
 <page-query>
-query($page: Int, $id: ID!, $name: String) {
+query($page: Int, $id: ID!) {
     categories(id: $id) {
         id
         name
@@ -37,7 +39,7 @@ query($page: Int, $id: ID!, $name: String) {
         }
     }
 
-    allBlogPost(sortBy: "published_date", perPage: 9, page: $page, filter: {category: {display: {eq: $name}}}) @paginate {
+    allBlogPost(sortBy: "published_date", perPage: 9, page: $page, filter: {category: {eq: $id}}) @paginate {
         pageInfo {
             totalPages
             currentPage
@@ -47,12 +49,12 @@ query($page: Int, $id: ID!, $name: String) {
                 id
                 title
                 category {
-                    display
+                    name
                 }
                 description
                 published_date
                 featured_image {
-                path
+                    path
                 }
                 path
             }
@@ -67,6 +69,20 @@ import BlogList from "../components/BlogList";
 import { Pager } from 'gridsome'
 
 export default {
+    metaInfo () {
+        return this.$seo({
+            title: this.$page.categories.name, 
+            description: this.$page.categories.name,
+            openGraph: {
+                title: this.$page.categories.name,
+                type: 'article'
+            },
+            twitter: {
+                title: this.$page.categories.name,
+                type: 'summary'
+            },
+        })
+    },
     components: {BlogList, Pager},
     updated() {
         new LazyLoad({});

@@ -42,12 +42,12 @@ query($page: Int) {
                 id
                 title
                 category {
-                display
+                    name
                 }
                 description
                 published_date
                 featured_image {
-                path
+                    path
                 }
                 path
             }
