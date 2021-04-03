@@ -26,7 +26,7 @@
         >Made with
         <a
           class="link link__dotted"
-          href="https://jekyllrb.com/"
+          href="https://gridsome.org/"
           target="_blank"
           >Gridsome</a
         >
@@ -63,5 +63,9 @@
 .footer__about--social a {
     color: #101010;
     margin-right: 15px;
+}
+
+.link__dotted {
+  border-bottom: 1px dashed #202020;
 }
 </style>

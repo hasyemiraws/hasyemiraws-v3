@@ -13,7 +13,7 @@
                     </g-link>
                 </span>
             </div>   
-            <h1 class="text-5xl my-10">{{ $page.categories.name | uppercase }}</h1> 
+            <h1 class="text-5xl my-10 categories__title">{{ $page.categories.name | uppercase }}</h1> 
             <section>
                 <BlogList :pages="$page.allBlogPost.edges" :show-more-stories="false" />
                 <Pager class="categories__navigation" :info="$page.allBlogPost.pageInfo"/>
@@ -94,6 +94,10 @@ export default {
 </script>
 
 <style>
+    .categories__title {
+        font-family: acumin-pro-wide, sans-serif
+    }
+
     .categories__navigation {
         text-align: right;
         font-size: 1.7em;
@@ -106,8 +110,6 @@ export default {
     .categories__navigation a.active {
         color: #939393;
     }
-</style>
-
 </style>
 
 <style scoped>

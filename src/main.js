@@ -50,4 +50,9 @@ export default function (Vue, { router, head, isClient }) {
     { name: "robots", content: "index, follow" }
   )
 
+  head.script.push({
+    src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+    async: true
+  })
+  
 }

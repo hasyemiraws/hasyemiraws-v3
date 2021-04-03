@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 md:gap-10">
             <div class="col-span-2">
                 <div class="grid grid-cols-2 gap-10">
-                    <template v-for="(page, idx) in pages">
+                    <template v-for="(page, idx) in leftPages">
                         <div v-if="idx < 5" :key="page.node.id" :class="{'col-span-2': idx == 0}">
                             <figure class="overflow-hidden mb-14">
                                 <g-link :to="page.node.path" :class="{'aspect-ratio-1-1': idx > 0}"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
@@ -28,8 +28,8 @@
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-10 md:grid-cols-1 md:gap-10">
-                <template v-for="(page, idx) in pages">
-                    <figure class="overflow-hidden mb-14" :key="page.node.id" v-if="idx > 4">
+                <template v-for="(page, idx) in rightPages">
+                    <figure class="overflow-hidden mb-14" :key="page.node.id">
                         <g-link :to="page.node.path" class="aspect-ratio-1-1-sm"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
                         <figcaption class="post--label">                                                 
                             <span class="post--category">
@@ -84,6 +84,30 @@ export default {
             default: true
         }
     },
+    computed: {
+        leftPages() {
+            const pagesCount = this.pages.length;
+            if (pagesCount > 5) {
+                return this.pages.slice(0, 6)
+            } else {
+                if (pagesCount <= 3) {
+                    return this.pages.slice(0, pagesCount - 1)
+                }
+                return this.pages.slice(0, pagesCount - 2)
+            }
+        },
+        rightPages() {
+            const pagesCount = this.pages.length;
+            if (pagesCount > 5) {
+                return this.pages.slice(5, pagesCount+1)
+            } else {
+                if (pagesCount <= 3) {
+                    return this.pages.slice(pagesCount - 1, pagesCount+1)
+                }
+                return this.pages.slice(pagesCount - 2, pagesCount+1)
+            }
+        }
+    },
     mounted() {
         new LazyLoad({});
     }
@@ -113,6 +137,7 @@ export default {
         margin-top: 0px;
         font-family: acumin-pro-semi-condensed, sans-serif;
         font-weight: 700;    
+        line-height: 1.35em;
     }
 
     .post--date {

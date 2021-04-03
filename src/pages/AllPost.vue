@@ -12,7 +12,7 @@
                 </g-link>
             </span>
         </div>   
-        <h1 class="text-5xl my-10">ALL POSTS</h1> 
+        <h1 class="text-5xl my-10 categories__title">ALL POSTS</h1> 
         <section>
             <BlogList :pages="$page.allBlogPost.edges" :show-more-stories="false" />
             <Pager class="categories__navigation" :info="$page.allBlogPost.pageInfo"/>
@@ -73,6 +73,10 @@ export default {
 </script>
 
 <style>
+    .categories__title {
+        font-family: acumin-pro-wide, sans-serif
+    }
+    
     .categories__navigation {
         text-align: right;
         font-size: 1.7em;

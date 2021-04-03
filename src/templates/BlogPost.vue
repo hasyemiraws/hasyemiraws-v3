@@ -98,6 +98,8 @@ export default {
             script: [
                 { innerHTML: JSON.stringify(jsonld), type: 'application/ld+json' }
             ]
+        }, {
+            title: this.$page.blogPost.title
         }
     },
     mounted() {
@@ -159,13 +161,27 @@ export default {
 </style>
 
 <style>
+    .article--post--content a {
+        border-bottom: 1px dashed #202020;
+    }
+
     .article--post p {
         font-family: acumin-pro, sans-serif;
         font-style: normal;
+        font-size: 17px;
         line-height: 1.75em;
     }
 
     .article--post p + p {
         margin-top: 25px;
+    }
+
+    .article--post figure {
+        margin-top: 10px;
+    }
+
+    .article--post figure figcaption {
+        margin-top: 5px;
+        text-align: center;
     }
 </style>

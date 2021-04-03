@@ -4,19 +4,11 @@
             <div class="menu__overlay--container">
             <ul class="menu__list-link">
                 <li>
-                <a href="#" data-attr-menu="toggle" title="Blog">Blog</a>
-                <ul class="menu__list-link" data-attr-menu="dropdown_menu">
-                    <li><a href="#" data-attr-menu="back" title="Back to main">&lt; Back</a></li>
-                    <li><a href="/dev/" title="Dev">Dev</a></li>
-                    <li><a href="/book/" title="Book">Book</a></li>
-                    <li><a href="/travel/" title="Travel">Travel</a></li>
-                    <li><a href="/thoughts/" title="Thoughts">Thoughts</a></li>
-                    <li><a href="/blog/" title="Blog">Browse All</a></li>
-                </ul>
+                    <g-link to="/all-post/" title="All Posts">All Posts</g-link>
                 </li>
-                <li><a href="#" title="Coming Soon">Portofolio</a></li>
+                <!-- <li><a href="#" title="Coming Soon">Portofolio</a></li>
                 <li><a href="#" title="Coming Soon">Resources</a></li>
-                <li><a href="#" title="Coming Soon">Playground</a></li>
+                <li><a href="#" title="Coming Soon">Playground</a></li> -->
                 <li><a href="/about/" title="About">About</a></li>
             </ul>
             </div>
