@@ -15,13 +15,14 @@ function handleIntersection(entries, observer) {
 	})
 }
 
-(adsbygoogle = window.adsbygoogle || []).push({
-	google_ad_client: "ca-pub-9523208256804448",
-	enable_page_level_ads: true
-});
-
 window.addEventListener('load', (e) => {
-	  let observer = new IntersectionObserver(handleIntersection, options);  
-	  observer.observe(document.querySelector(".hero--intro .hero--label"));
-	  observer.observe(document.querySelector(".article--post"));
+	(adsbygoogle = window.adsbygoogle || []).push({
+		google_ad_client: "ca-pub-9523208256804448",
+		enable_page_level_ads: true
+	});
+
+	let observer = new IntersectionObserver(handleIntersection, options);  
+
+	observer.observe(document.querySelector(".hero--intro .hero--label"));
+	observer.observe(document.querySelector(".article--post"));
 });

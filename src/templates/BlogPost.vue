@@ -18,7 +18,25 @@
                 <article class="article--post my-10">
                 
                     <div class="article--post-content">
+                        <div class="ads top">
+                            <ins class="adsbygoogle"
+                                style="display:block; text-align:center;"
+                                data-ad-layout="in-article"
+                                data-ad-format="fluid"
+                                data-ad-client="ca-pub-9523208256804448"
+                                data-ad-slot="1585355662"></ins>
+                        </div>
+                        
                         <vue-markdown :source="$page.blogPost.content"></vue-markdown>
+
+                        <div class="ads bottom">
+                            <ins class="adsbygoogle"
+                                style="display:block; text-align:center;"
+                                data-ad-layout="in-article"
+                                data-ad-format="fluid"
+                                data-ad-client="ca-pub-9523208256804448"
+                                data-ad-slot="1393783976"></ins>
+                        </div>
                     </div>
 
                     <div class="article--comments mt-10">
@@ -99,11 +117,20 @@ export default {
                 { innerHTML: JSON.stringify(jsonld), type: 'application/ld+json' }
             ]
         }, {
-            title: this.$page.blogPost.title
+            title: this.$page.blogPost.title,
+            meta: [
+                {
+                    name: 'description',
+                    key: 'description',
+                    content: this.$page.blogPost.description
+                }
+            ]
         }
     },
     mounted() {
         new LazyLoad({});
+
+        (adsbygoogle = window.adsbygoogle || []).push({});
     },
     components: {
         VueMarkdown
@@ -112,6 +139,14 @@ export default {
 </script>
 
 <style scoped>
+    .ads.top {
+        margin-bottom: 15px;   
+    }
+
+    .ads.bottom {
+        margin-top: 15px;   
+    }
+
     .article--date {
         font-family: 'apercu medium', sans-serif;
         font-size: 14px;
@@ -161,14 +196,14 @@ export default {
 </style>
 
 <style>
-    .article--post--content a {
+    .article--post-content a {
         border-bottom: 1px dashed #202020;
     }
 
     .article--post p {
         font-family: acumin-pro, sans-serif;
         font-style: normal;
-        font-size: 17px;
+        font-size: 1.1em;
         line-height: 1.75em;
     }
 

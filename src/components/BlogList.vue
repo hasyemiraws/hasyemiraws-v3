@@ -6,7 +6,7 @@
                     <template v-for="(page, idx) in leftPages">
                         <div v-if="idx < 5" :key="page.node.id" :class="{'col-span-2': idx == 0}">
                             <figure class="overflow-hidden mb-14">
-                                <g-link :to="page.node.path" :class="{'aspect-ratio-1-1': idx > 0}"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
+                                <g-link :to="getLinkLang(page.node)" :class="{'aspect-ratio-1-1': idx > 0}"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
                                 <figcaption class="post--label">                                                 
                                     <span class="post--category">
                                         <g-link :to="page.node.category.path">
@@ -14,9 +14,9 @@
                                         </g-link>
                                     </span>
 
-                                    <g-link :to="page.node.path">
+                                    <g-link :to="getLinkLang(page.node)">
                                         <h3 class="post--title text-md md:text-xl">                              
-                                            {{ page.node.title }}                              
+                                            {{ getAttributeLang('title', page.node) }}                              
                                         </h3>
                                     </g-link>
 
@@ -106,6 +106,25 @@ export default {
                 }
                 return this.pages.slice(pagesCount - 2, pagesCount+1)
             }
+        },
+        currentLang() {
+            return (this.$context.locale == 'en-us') ? 'en' : 'id';
+        }
+    },
+    methods: {
+        getAttributeLang(key, node) {
+            if (this.currentLang == 'en') {
+                if (node[`${key}_en`] != '') return node[`${key}_en`];
+            } 
+
+            return node[key];
+        },
+        getLinkLang(node) {
+            if (this.currentLang == 'en') {
+                if (node[`slug_en`] != '') return `/blog/${node['slug_en']}`;
+            }
+
+            return node.path;
         }
     },
     mounted() {

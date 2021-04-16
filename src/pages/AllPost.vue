@@ -41,15 +41,17 @@ query($page: Int) {
             node {
                 id
                 title
+                title_en
                 category {
                     name
+                    path
                 }
-                description
                 published_date
                 featured_image {
                     path
                 }
                 path
+                slug_en
             }
         }
     }
@@ -63,6 +65,11 @@ import { Pager } from 'gridsome'
 
 export default {
     components: {BlogList, Pager},
+    metaInfo () {
+        return {
+            title: "All posts"
+        }
+    },
     updated() {
         new LazyLoad({});
     },

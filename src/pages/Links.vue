@@ -44,15 +44,12 @@ export default {
         display: inline-block;
     }
 
-    .links__list {
-        padding: 15px 0px;
-    }
-
     .links__href {
         border: 2px solid #202020;
         color: #202020;
         padding: 15px;
         background-color: white;
+        display: inline-block;
         transition: all 0.3s ease-in;
     }
 

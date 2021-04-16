@@ -83,16 +83,17 @@ query {
         node {
             id
             title
+            title_en
             category {
               name
               path
             }
-            description
             published_date
             featured_image {
               path
             }
             path
+            slug_en
         }
     }
   }
