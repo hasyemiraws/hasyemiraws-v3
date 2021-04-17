@@ -30,7 +30,7 @@
             <div class="grid grid-cols-2 gap-10 md:grid-cols-1 md:gap-10">
                 <template v-for="(page, idx) in rightPages">
                     <figure class="overflow-hidden mb-14" :key="page.node.id">
-                        <g-link :to="page.node.path" class="aspect-ratio-1-1-sm"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
+                        <g-link :to="getLinkLang(page.node)" class="aspect-ratio-1-1-sm"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
                         <figcaption class="post--label">                                                 
                             <span class="post--category">
                                 <g-link :to="page.node.category.path">
@@ -38,9 +38,9 @@
                                 </g-link>
                             </span>
 
-                            <g-link :to="page.node.path">
+                            <g-link :to="getLinkLang(page.node)">
                                 <h3 class="post--title text-lg md:text-xl">                              
-                                    {{ page.node.title }}                              
+                                    {{ getAttributeLang('title', page.node) }}                              
                                 </h3>
                             </g-link>          
                             
@@ -54,7 +54,7 @@
             
         </div>
         <span class="post--more" v-if="showMoreStories">
-            <g-link to="/all-post/">
+            <g-link :to="$tp('/all-post/')">
             <g-image class="post--more-arrow" src="~/assets/images/right-arrow.svg" />
             <svg id="circular" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -90,7 +90,7 @@ export default {
             if (pagesCount > 5) {
                 return this.pages.slice(0, 6)
             } else {
-                if (pagesCount <= 3) {
+                if (pagesCount <= 4) {
                     return this.pages.slice(0, pagesCount - 1)
                 }
                 return this.pages.slice(0, pagesCount - 2)
@@ -101,7 +101,7 @@ export default {
             if (pagesCount > 5) {
                 return this.pages.slice(5, pagesCount+1)
             } else {
-                if (pagesCount <= 3) {
+                if (pagesCount <= 4) {
                     return this.pages.slice(pagesCount - 1, pagesCount+1)
                 }
                 return this.pages.slice(pagesCount - 2, pagesCount+1)
@@ -121,7 +121,7 @@ export default {
         },
         getLinkLang(node) {
             if (this.currentLang == 'en') {
-                if (node[`slug_en`] != '') return `/blog/${node['slug_en']}`;
+                return this.$tp(node.path_en, 'en-us', true)
             }
 
             return node.path;

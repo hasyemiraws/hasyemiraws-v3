@@ -9,7 +9,7 @@
               high functioning introvert.
           </span>
           <span class="post--more about-me--more">
-            <a href="#">
+            <g-link :to="$tp('about')">
               <g-image
                 class="post--more-arrow"
                 src="~/assets/images/right-arrow.svg"
@@ -40,7 +40,7 @@
                   <textPath xlink:href="#circle">MORE ABOUT ME</textPath>
                 </text>
               </svg>
-            </a>
+            </g-link>
           </span>
         </h1>
       </div>    
@@ -78,7 +78,7 @@
 
 <page-query>
 query {
-  allBlogPost(limit: 9, sortBy: "published_date") {
+  allBlogPost(limit: 9, sortBy: "published_date", filter: {status: {eq: "published"}}) {
     edges {
         node {
             id
@@ -93,7 +93,7 @@ query {
               path
             }
             path
-            slug_en
+            path_en: path(to:"en")
         }
     }
   }

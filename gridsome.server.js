@@ -6,6 +6,7 @@ module.exports = function (api) {
     const categories = await axios.get('https://api.hasyemiraws.com/api/collections/get/categories?token=57ab7bfaa19c4967387094169487f7')
     const posts = blogposts.data.entries
     const categoriesData = categories.data.entries
+    const langs = ['id', 'en']
 
     const blogCollection = addCollection({
       typeName: 'BlogPost'
@@ -23,8 +24,30 @@ module.exports = function (api) {
       const categoryPost = categoriesCollection._collection.data.find((cat) => {
         return cat.name == post.category.display
       })
+
+      let translations = {};
+
+      langs.forEach(lang => {
+        if (lang == 'en') {
+          translations['en'] = {
+            'title': post.title_en,
+            'description': post.description_en,
+            'content': post.content_en,
+            'slug': post.slug_en
+          }
+        } else {
+          translations['id'] = {
+            'title': post.title,
+            'description': post.description,
+            'content': post.content,
+            'slug': post.slug
+          }
+        }
+      });
+
       let extendPost = Object.assign({...post}, {
-        "category": store.createReference('Categories', categoryPost.id)
+        "category": store.createReference('Categories', categoryPost.id),
+        "translations": translations
       })
 
       blogCollection.addNode({...extendPost})

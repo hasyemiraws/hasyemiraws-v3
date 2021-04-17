@@ -3,12 +3,12 @@
         <div>
             <div class="my-5">
                 <span class="category">
-                    <g-link to="/all-post/">
+                    <g-link :to="$tp('/all-post/')">
                         All Posts
                     </g-link>
                 </span>
                 <span class="category" :class="{'active': cat.node.name == $page.categories.name}" v-for="cat in $page.allCategories.edges" :key="cat.node.name">
-                    <g-link :to="cat.node.path">
+                    <g-link :to="$tp(cat.node.path)">
                         {{ cat.node.name }}
                     </g-link>
                 </span>

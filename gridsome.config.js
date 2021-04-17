@@ -68,21 +68,44 @@ module.exports = {
         },
         fallbackLocale: 'in-id', // fallback language
         defaultLocale: 'in-id', // default language
+        enablePathRewrite: true,
+        enablePathGeneration: false,
+        routes: require('./routes.js'),
         rewriteDefaultLanguage: false, // rewrite default locale, default: true
       }
     }
   ],
   templates: {
-    BlogPost: [{
-      path: (node) => {
-        return `/blog/${node.slug}`
+    BlogPost: [
+      {
+        name: "default",
+        path: '/blog/:slug',
+        component: './src/templates/BlogPost.vue'
+      },
+      {
+        name: 'en',
+        path: (node) => {
+          if (node.slug_en !== null) {
+            return `/en/blog/${node.slug_en}`
+          } else {
+            return `/en/blog/${node.slug}`
+          }
+        },
+        component: './src/templates/BlogPost.vue'
       }
-    }],
+    ],
     Categories: [
       {
         path: (node) => {
           return `/categories/${node.slug}`
         }
+      },
+      {
+        name: 'en',
+        path: (node) => {
+          return `/en/categories/${node.slug}`
+        },
+        component: './src/templates/Categories.vue'
       }
     ]
   },

@@ -5,12 +5,12 @@
                 
                 <div>
                     <span class="article--category">
-                        <a href="#">
+                        <g-link :to="$tp($page.blogPost.category.path)">
                             {{ $page.blogPost.category.name | lowercase }}
-                        </a>
+                        </g-link>
                     </span>
                 </div>
-                <h2 class="article--title text-lg md:text-3xl">{{ $page.blogPost.title }}</h2>
+                <h2 class="article--title text-lg md:text-3xl">{{ this.getAttributeLang('title') }}</h2>
                 <span class="article--date">{{ $page.blogPost.published_date }}</span>
 
                 <div class="article--featured-wrap mt-10" :style="{backgroundImage: `url(${$page.blogPost.featured_image.path})`}"></div>
@@ -27,7 +27,7 @@
                                 data-ad-slot="1585355662"></ins>
                         </div>
                         
-                        <vue-markdown :source="$page.blogPost.content"></vue-markdown>
+                        <vue-markdown :source="this.getAttributeLang('content')"></vue-markdown>
 
                         <div class="ads bottom">
                             <ins class="adsbygoogle"
@@ -42,7 +42,7 @@
                     <div class="article--comments mt-10">
                         <Disqus
                             shortname="hasyemiraws"
-                            :identifier="$page.blogPost.title"/>
+                            :identifier="getAttributeLang('title')"/>
                     </div>
 
                 </article>
@@ -55,11 +55,15 @@
 query ($id: ID!) {
   blogPost(id: $id) {
     title
+    title_en
     description
+    description_en
     content
+    content_en
     author
     category {
         name
+        path
     }
     published_date
     featured_image {
@@ -86,8 +90,8 @@ export default {
                 "@type":"Person",
                 "name":"Hasyemi Rafsanjani Asyari"
             },
-            "description":this.$page.blogPost.description,
-            "headline":this.$page.blogPost.title,
+            "description":this.getAttributeLang('description'),
+            "headline":this.getAttributeLang('title'),
             "dateModified":this.$page.blogPost.published_date,
             "datePublished":this.$page.blogPost.published_date,
             "publisher":{
@@ -102,14 +106,14 @@ export default {
         }
 
         return this.$seo({
-            title: this.$page.blogPost.title, 
-            description: this.$page.blogPost.description,
+            title: this.getAttributeLang('title'), 
+            description: this.getAttributeLang('description'),
             openGraph: {
-                title: this.$page.blogPost.title,
+                title: this.getAttributeLang('title'),
                 type: 'article'
             },
             twitter: {
-                title: this.$page.blogPost.title,
+                title: this.getAttributeLang('title'),
                 type: 'summary'
             },
         }), {
@@ -117,20 +121,42 @@ export default {
                 { innerHTML: JSON.stringify(jsonld), type: 'application/ld+json' }
             ]
         }, {
-            title: this.$page.blogPost.title,
+            title: this.getAttributeLang('title'),
             meta: [
                 {
                     name: 'description',
                     key: 'description',
-                    content: this.$page.blogPost.description
+                    content: this.getAttributeLang('description')
                 }
             ]
         }
+    },
+    computed: {
+        currentLang() {
+            return (this.$context.locale == 'en-us') ? 'en' : 'id';
+        }
+    },
+    methods: {
+        getAttributeLang(key) {
+            if (this.currentLang == 'en') {
+                if (this.$page.blogPost[`${key}_en`] != '') return this.$page.blogPost[`${key}_en`];
+            } 
+
+            return this.$page.blogPost[key];
+        },
     },
     mounted() {
         new LazyLoad({});
 
         (adsbygoogle = window.adsbygoogle || []).push({});
+    },
+    created() {
+        const fullPathArr = this.$route.fullPath.split('/'); 
+        if (fullPathArr[1] == 'en') {
+            this.$i18n.locale = 'en-us'
+            this.$context.locale = 'en-us';
+            this.$route.meta.locale = 'en-us';
+        }
     },
     components: {
         VueMarkdown

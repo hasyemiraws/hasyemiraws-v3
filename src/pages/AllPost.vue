@@ -7,7 +7,7 @@
                 </g-link>
             </span>
             <span class="category" v-for="cat in $page.allCategories.edges" :key="cat.node.name">
-                <g-link :to="cat.node.path">
+                <g-link :to="$tp(cat.node.path)">
                     {{ cat.node.name }}
                 </g-link>
             </span>
@@ -51,7 +51,7 @@ query($page: Int) {
                     path
                 }
                 path
-                slug_en
+                path_en: path(to:"en")
             }
         }
     }

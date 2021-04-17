@@ -4,12 +4,12 @@
             <div class="menu__overlay--container">
             <ul class="menu__list-link">
                 <li>
-                    <g-link to="/all-post/" title="All Posts">All Posts</g-link>
+                    <g-link :to="$tp('/all-post/')" title="All Posts">All Posts</g-link>
                 </li>
                 <!-- <li><a href="#" title="Coming Soon">Portofolio</a></li>
                 <li><a href="#" title="Coming Soon">Resources</a></li>
                 <li><a href="#" title="Coming Soon">Playground</a></li> -->
-                <li><a href="/about/" title="About">About</a></li>
+                <li><g-link :to="$tp('/about/')" title="About">About</g-link></li>
             </ul>
             </div>
         </nav>
@@ -17,7 +17,7 @@
         <div class="container mx-auto max-w-screen-xl z-10 relative">
             <div class="flex justify-between items-center">
             <span class="filler"></span>
-            <g-link to="/" class="justify-self-center type-link">
+            <g-link :to="$tp('/')" class="justify-self-center type-link">
                 <span class="logo-type">hraws</span>
             </g-link>
             <span class="hamburger-menu" @click="showMenu">
