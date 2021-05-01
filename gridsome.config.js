@@ -6,7 +6,6 @@ const postcssPlugins = [
 ]
 
 const path = require('path')
-const { allowedNodeEnvironmentFlags } = require('process')
 
 function addStyleResource (rule) {
   rule.use('style-resource')
@@ -29,12 +28,6 @@ module.exports = {
     {
       use: '@gridsome/plugin-sitemap',
       options: {}
-    },
-    {
-      use: '@gridsome/plugin-google-analytics',
-      options: {
-        id: 'UA-108167393-1'
-      }
     },
     {
       use: '@gridsome/source-filesystem',

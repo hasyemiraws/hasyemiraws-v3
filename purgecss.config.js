@@ -14,8 +14,11 @@ module.exports = {
         'a',
         'g-image',
         'g-image--lazy',
-        'g-image--loaded',
+        'g-image--loaded'
     ],
+    safelist: {
+        deep: [/aspect-ratio-16-9$/],
+    },
     extractors: [
         {
             extractor: content => content.match(/[A-z0-9-:\\/]+/g),
