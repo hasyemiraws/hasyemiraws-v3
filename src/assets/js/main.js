@@ -20,9 +20,14 @@ window.addEventListener('load', (e) => {
 		google_ad_client: "ca-pub-9523208256804448",
 		enable_page_level_ads: true
 	});
-
-	let observer = new IntersectionObserver(handleIntersection, options);  
-
-	observer.observe(document.querySelector(".hero--intro .hero--label"));
-	observer.observe(document.querySelector(".article--post"));
 });
+
+window.onscroll = function() {myFunction()};
+
+function myFunction() {
+	if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+		headerEl.classList.add('scrolled');
+	} else {
+		headerEl.classList.remove('scrolled');
+	}
+}

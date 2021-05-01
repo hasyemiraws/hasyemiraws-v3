@@ -1,5 +1,6 @@
 <template>
   <svg
+    id="hamburgerMenu"
     class="ham hamRotate ham4 ham5"
     viewBox="0 0 100 100"
     width="60"

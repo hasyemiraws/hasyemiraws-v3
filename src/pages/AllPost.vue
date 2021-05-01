@@ -1,6 +1,6 @@
 <template>
     <Layout>
-        <div class="my-5">
+        <div class="my-5 category-wrapper">
             <span class="category active">
                 <g-link to="/all-post/">
                     All Posts
@@ -12,7 +12,7 @@
                 </g-link>
             </span>
         </div>   
-        <h1 class="text-5xl my-10 categories__title">ALL POSTS</h1> 
+        <h1 class="text-5xl my-10 mt-16 categories__title">ALL POSTS</h1> 
         <section>
             <BlogList :pages="$page.allBlogPost.edges" :show-more-stories="false" />
             <Pager class="categories__navigation" :info="$page.allBlogPost.pageInfo"/>
@@ -32,7 +32,7 @@ query($page: Int) {
         }
     }
 
-    allBlogPost(sortBy: "published_date", perPage: 9, page: $page) @paginate {
+    allBlogPost(sortBy: "published_date", perPage: 9, page: $page, filter: {status: {eq: "published"}}) @paginate {
         pageInfo {
             totalPages
             currentPage
@@ -99,6 +99,12 @@ export default {
 </style>
 
 <style scoped>
+    .category-wrapper {
+        display: flex;
+        align-items: flex-start;
+        overflow: auto;
+    }
+
     .category {
         font-size: 16px;
         font-family: 'apercu medium', sans-serif;
@@ -107,6 +113,10 @@ export default {
         color: #202020;
         padding: 4px 8px;
         border-radius: 20px;
+    }
+
+    .category a {
+        white-space: nowrap;
     }
 
     .category.active {

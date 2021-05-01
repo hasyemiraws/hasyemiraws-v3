@@ -1,7 +1,7 @@
 <template>
     <Layout>
         <div>
-            <div class="my-5">
+            <div class="my-5 category-wrapper">
                 <span class="category">
                     <g-link :to="$tp('/all-post/')">
                         All Posts
@@ -13,7 +13,7 @@
                     </g-link>
                 </span>
             </div>   
-            <h1 class="text-5xl my-10 categories__title">{{ $page.categories.name | uppercase }}</h1> 
+            <h1 class="text-5xl my-10 mt-16 categories__title">{{ $page.categories.name | uppercase }}</h1> 
             <section>
                 <BlogList :pages="$page.allBlogPost.edges" :show-more-stories="false" />
                 <Pager class="categories__navigation" :info="$page.allBlogPost.pageInfo"/>
@@ -39,7 +39,7 @@ query($page: Int, $id: ID!) {
         }
     }
 
-    allBlogPost(sortBy: "published_date", perPage: 9, page: $page, filter: {category: {eq: $id}}) @paginate {
+    allBlogPost(sortBy: "published_date", perPage: 9, page: $page, filter: {status: {eq: "published"}, category: {eq: $id}}) @paginate {
         pageInfo {
             totalPages
             currentPage
@@ -95,7 +95,10 @@ export default {
 
 <style>
     .categories__title {
-        font-family: acumin-pro-wide, sans-serif
+        font-family: acumin-pro-wide, sans-serif;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        font-size: 3.5em;
     }
 
     .categories__navigation {
@@ -113,6 +116,12 @@ export default {
 </style>
 
 <style scoped>
+    .category-wrapper {
+        display: flex;
+        align-items: flex-start;
+        overflow: auto;
+    }
+
     .category {
         font-size: 16px;
         font-family: 'apercu medium', sans-serif;
@@ -121,6 +130,10 @@ export default {
         color: #202020;
         padding: 4px 8px;
         border-radius: 20px;
+    }
+
+    .category a {
+        white-space: nowrap;
     }
 
     .category.active {

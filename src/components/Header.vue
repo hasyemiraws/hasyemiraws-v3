@@ -4,12 +4,12 @@
             <div class="menu__overlay--container">
             <ul class="menu__list-link">
                 <li>
-                    <g-link :to="$tp('/all-post/')" title="All Posts">All Posts</g-link>
+                    <a href="#" @click.prevent.stop="handleLinkClick('/all-post/')" title="All Posts">All Posts</a>
                 </li>
                 <!-- <li><a href="#" title="Coming Soon">Portofolio</a></li>
                 <li><a href="#" title="Coming Soon">Resources</a></li>
                 <li><a href="#" title="Coming Soon">Playground</a></li> -->
-                <li><g-link :to="$tp('/about/')" title="About">About</g-link></li>
+                <li><a href="#" @click.prevent.stop="handleLinkClick('/about/')" title="About">About</a></li>
             </ul>
             </div>
         </nav>
@@ -108,6 +108,14 @@ export default {
                 menuOverlay.classList.add(inAnimation)
                 header.classList.add("menu-active")
             }   
+        },
+        handleLinkClick(path) {
+            let hamburgerMenu = document.querySelector('#hamburgerMenu');
+            this.showMenu();
+            hamburgerMenu.classList.toggle('active');
+            this.$router.push({
+                path: this.$tp(path)
+            })
         }
     }
 }
