@@ -24,7 +24,6 @@ export default function (Vue, { router, head, isClient }) {
       href: "https://use.typekit.net/npd1ibg.css"
     }
   )
-  
   head.meta.push(
     {
       name: 'keywords',
@@ -47,7 +46,8 @@ export default function (Vue, { router, head, isClient }) {
     { name: "twitter:card", content: "summary" },
     { name: "twitter:site", content: "@hasyemiraws" },
     { name: "twitter:creator", content: "Hasyemi Rafsanjani Asyari" },
-    { name: "robots", content: "index, follow" }
+    { name: "robots", content: "index, follow" },
+    { name: "google-site-verification", content: "JORh0NC0333783L9OQ8J5Fs-JM21GF3NcnP7lekDtHw" }
   )
 
   head.script.push({

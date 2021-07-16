@@ -75,6 +75,7 @@ query ($id: ID!) {
 
 <script>
 import LazyLoad from 'vanilla-lazyload'
+import VueMarkdown from 'vue-markdown'
 export default {
     metaInfo () {
         const jsonld = {
@@ -156,6 +157,9 @@ export default {
             this.$context.locale = 'en-us';
             this.$route.meta.locale = 'en-us';
         }
+    },
+    components: {
+        VueMarkdown
     }
 }
 </script>
