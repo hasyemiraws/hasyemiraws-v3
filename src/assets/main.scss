@@ -1,7 +1,6 @@
 @import "./css/_variables.scss";
 @import "./css/_base.scss";
 @import "./css/_typography.scss";
-@import "./css/_font-awesome.scss";
 @import "./css/_mixins.scss";
 
 @import "./css/_menu-navigation";
@@ -9,12 +8,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.layout-wrapper {
-    max-width: 1080px;
-    margin: 0 auto;
-    height: 100%;
-}
 
 h1 {
     font-family: acumin-pro-wide, sans-serif;

@@ -1,10 +1,13 @@
 <template>
-    <header ref="header" class="fixed w-full z-10 bg-white left-0 top-0">
+    <header ref="header">
         <nav class="menu__overlay animate__animated">
             <div class="menu__overlay--container">
             <ul class="menu__list-link">
                 <li>
                     <a href="#" @click.prevent.stop="handleLinkClick('/all-post/')" title="All Posts">All Posts</a>
+                </li>
+                <li>
+                    <a href="#" @click.prevent.stop="handleLinkClick('/currently-reading/')" title="Currently Reading">Currently Reading</a>
                 </li>
                 <!-- <li><a href="#" title="Coming Soon">Portofolio</a></li>
                 <li><a href="#" title="Coming Soon">Resources</a></li>
@@ -14,12 +17,24 @@
             </div>
         </nav>
 
-        <div class="container mx-auto max-w-screen-xl z-10 relative">
+        <div class="header__inner container mx-auto max-w-screen-xl z-10 relative">
             <div class="flex justify-between items-center">
-            <span class="filler"></span>
             <g-link :to="$tp('/')" class="justify-self-center type-link">
-                <span class="logo-type">hraws</span>
+                <span class="logo-type">
+                    h<span class="hide-mobile">asyemi</span>raws
+                </span>
             </g-link>
+            <nav class="nav__desktop">
+                <ul class="nav__item">
+                    <li>
+                        <g-link :to="'/all-post/'" title="All Posts">All Posts</g-link>
+                    </li>
+                    <li>
+                        <g-link :to="'/currently-reading/'" title="Currently Reading">Currently Reading</g-link>
+                    </li>
+                    <li><g-link :to="'/about/'" title="About">About</g-link></li>
+                </ul>
+            </nav>
             <span class="hamburger-menu" @click="showMenu">
                 <hamburger-menu/>    
             </span>
@@ -33,6 +48,23 @@
 header {
     padding-top: 5px;
     padding-bottom: 5px;
+    position: sticky;
+    top: 0px;
+    background: white;
+    z-index: 10;
+}
+
+.header__inner {
+    max-width: 1080px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.header__inner > div {
+    flex: 1;
 }
 
 header.scrolled > div, header.scrolled > div > div {
@@ -43,8 +75,8 @@ header.scrolled > div, header.scrolled > div > div {
 	font-family: acumin-pro-wide, sans-serif;
 	font-style: normal;
 	font-weight: 700;
-	letter-spacing: 1px;
-    font-size: 28px;
+	letter-spacing: -1px;
+    font-size: 21px;
 }
 
 .menu-active .logo-type {
@@ -61,8 +93,51 @@ header.scrolled .hamburger-menu {
     transform: scale(0.8);
 }
 
+.hamburger-menu {
+    margin-right: -15px;
+}
+
 .filler {
     width: 60px;
+}
+
+.nav__desktop, .hide-mobile {
+    display: none;
+}
+
+@media screen and (min-width: 640px)  {
+    header {
+        margin-top: 60px;
+    }
+
+    .header__inner {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .nav__desktop {
+        display: block;
+    }
+
+    .nav__item {
+        display: inline-flex;
+    }
+
+    .nav__item li {
+        font-family: 'acumin-pro-semi-condensed';
+    }
+
+    .nav__item li + li {
+        margin-left: 20px;
+    }
+
+    .hide-mobile {
+        display: inline;
+    }
+
+    .hamburger-menu {
+        display: none;
+    }
 }
 </style>
 

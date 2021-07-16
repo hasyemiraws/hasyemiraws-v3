@@ -72,4 +72,10 @@ body {
 .main {
   padding-top: 80px;
 }
+
+.layout-wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+  height: 100%;
+}
 </style>
