@@ -1,7 +1,7 @@
 <template>
     <Layout>
         <section class="post--section content--section">  
-            <div class="container container__post mt-20 max-w-2xl mx-auto">
+            <div class="container container__post mt-10 md:mt-20 max-w-2xl mx-auto">
                 
                 <div>
                     <span class="article--category">
@@ -222,12 +222,18 @@ export default {
 </style>
 
 <style>
+    .article--audio {
+        width: 100%;
+        margin-top: 3px;
+        margin-bottom: 15px;
+    }
+
     .article--post-content a {
         border-bottom: 1px dashed #202020;
     }
 
     .article--post p {
-        font-family: acumin-pro, sans-serif;
+        font-family: basic-sans, sans-serif;
         font-style: normal;
         font-size: 1.1em;
         line-height: 1.75em;
@@ -239,6 +245,10 @@ export default {
 
     .article--post figure {
         margin-top: 10px;
+    }
+
+    .article--post figure img {
+        margin: 0 auto;
     }
 
     .article--post figure figcaption {

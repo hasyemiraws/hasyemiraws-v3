@@ -70,11 +70,17 @@ body {
 }
 
 .main {
-  padding-top: 80px;
+  padding-top: 40px;
 }
 
 .layout-wrapper {
   max-width: 980px;
   height: 100%;
+}
+
+@media screen and (min-width: 640px) {
+  .main {
+    padding-top: 80px;
+  }
 }
 </style>

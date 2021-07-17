@@ -48,6 +48,7 @@
 header {
     padding-top: 5px;
     padding-bottom: 5px;
+    margin-top: 20px;
     position: sticky;
     top: 0px;
     background: white;
