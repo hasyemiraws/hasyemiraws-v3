@@ -78,62 +78,55 @@ import LazyLoad from 'vanilla-lazyload'
 import VueMarkdown from 'vue-markdown'
 export default {
     metaInfo () {
-        const jsonld = {
-            "@type":"BlogPosting",
-            "image":this.$page.blogPost.featured_image.path,
-            "url":`https://hasyemiraws.com/${this.$route.fullPath}`,
-            "mainEntityOfPage":{
-                "@type":"WebPage",
-                "@id":`https://hasyemiraws.com/${this.$route.fullPath}`
-            },
-            "author":{
-                "@type":"Person",
-                "name":"Hasyemi Rafsanjani Asyari"
-            },
-            "description":this.getAttributeLang('description'),
-            "headline":this.getAttributeLang('title'),
-            "dateModified":this.$page.blogPost.published_date,
-            "datePublished":this.$page.blogPost.published_date,
-            "publisher":{
-                "@type":"Organization",
-                "logo":{
-                    "@type":"ImageObject",
-                    "url":"https://hasyemiraws.com/assets/static/hraws-favicon.ac8d93a.90497532acd41cd5a968e3b1f2196d2a.png"
-                },
-                "name":"Hasyemi Rafsanjani Asyari"
-            },
-            "@context":"https://schema.org"
-        }
-
         return this.$seo({
             title: this.getAttributeLang('title'), 
             description: this.getAttributeLang('description'),
             openGraph: {
                 title: this.getAttributeLang('title'),
+                description: this.getAttributeLang('description'),
                 type: 'article'
             },
             twitter: {
                 title: this.getAttributeLang('title'),
+                description: this.getAttributeLang('description'),
                 type: 'summary'
             },
-        }), {
             script: [
-                { innerHTML: JSON.stringify(jsonld), type: 'application/ld+json' }
+                { innerHTML: JSON.stringify(this.jsonld), type: 'application/ld+json' }
             ]
-        }, {
-            title: this.getAttributeLang('title'),
-            meta: [
-                {
-                    name: 'description',
-                    key: 'description',
-                    content: this.getAttributeLang('description')
-                }
-            ]
-        }
+        })
     },
     computed: {
         currentLang() {
             return (this.$context.locale == 'en-us') ? 'en' : 'id';
+        },
+        jsonld() {
+            return {
+                "@type":"BlogPosting",
+                "image":this.$page.blogPost.featured_image.path,
+                "url":`https://hasyemiraws.com/${this.$route.fullPath}`,
+                "mainEntityOfPage":{
+                    "@type":"WebPage",
+                    "@id":`https://hasyemiraws.com/${this.$route.fullPath}`
+                },
+                "author":{
+                    "@type":"Person",
+                    "name":"Hasyemi Rafsanjani Asyari"
+                },
+                "description":this.getAttributeLang('description'),
+                "headline":this.getAttributeLang('title'),
+                "dateModified":this.$page.blogPost.published_date,
+                "datePublished":this.$page.blogPost.published_date,
+                "publisher":{
+                    "@type":"Organization",
+                    "logo":{
+                        "@type":"ImageObject",
+                        "url":"https://hasyemiraws.com/assets/static/hraws-favicon.ac8d93a.90497532acd41cd5a968e3b1f2196d2a.png"
+                    },
+                    "name":"Hasyemi Rafsanjani Asyari"
+                },
+                "@context":"https://schema.org"
+            }
         }
     },
     methods: {

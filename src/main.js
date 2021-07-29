@@ -54,5 +54,17 @@ export default function (Vue, { router, head, isClient }) {
     src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
     async: true
   })
+
+  head.script.push({
+    src: 'https://www.googletagmanager.com/gtag/js?id=G-1QF3XWFT3G',
+    async: true
+  })
+
+  head.script.push({
+   innerHTML: `window.dataLayer = window.dataLayer || [];` +
+     `function gtag(){dataLayer.push(arguments);}` +
+     `gtag('js', new Date());` +
+     `gtag('config', 'G-1QF3XWFT3G');`
+  })
   
 }

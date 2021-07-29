@@ -7,12 +7,18 @@
         <li v-for="book in books" :key="book.id" class="book-item">
           <img class="book-thumb" :src="book.properties.Cover.url"/>
           <div>
-            <span class="book-name">{{ book.properties.Book.title[0].text.content }}</span>
-            <ul class="book-format" v-if="book.properties.Format.multi_select.length > 0">
-              <li class="book-format-tag" :key="format.name" v-for="format in book.properties.Format.multi_select" :style="{backgroundColor: format.color, borderColor: format.color}">{{ format.name }}</li>
-            </ul>
+            <div style="margin-bottom: 3px">
+              <span class="book-name">{{ book.properties.Book.title[0].text.content }}</span>
+              <ul class="book-format" v-if="book.properties.Format.multi_select.length > 0">
+                <li class="book-format-tag" :key="format.name" v-for="format in book.properties.Format.multi_select" :style="{backgroundColor: format.color, borderColor: format.color}">{{ format.name }}</li>
+              </ul>
+            </div>
             <div class="book-progress">
-              <span :style="{width: (book.properties['Last Progress [Percent]'].rollup.number ? `${book.properties['Last Progress [Percent]'].rollup.number}px` : 'Opx')}" class="bar"></span></div>
+              <div class="outer-bar">
+                <span :style="{width: (book.properties['Last Progress [Percent]'].rollup.number ? `${book.properties['Last Progress [Percent]'].rollup.number}px` : 'Opx')}" class="bar"></span>
+              </div>
+              <span class="progress-number">{{ (book.properties['Last Progress [Percent]'].rollup.number ? `${book.properties['Last Progress [Percent]'].rollup.number}%` : 'O%') }}</span>
+            </div>
           </div>
         </li>
       </ul>
@@ -72,20 +78,30 @@ export default {
   }
 
   .book-format {
-    display: flex;
+    display: inline-flex;
+    margin-left: 5px;
     margin-top: 5px;
   }
 
   .book-progress {
+    display: flex;
+    align-items: center;
+  }
+
+  .progress-number {
+    font-size: 11px;
+    margin-left: 2px;
+  }
+
+  .outer-bar {
     display: inline-block;
     max-width: 125px;
-    margin-top: 5px;
     width: 100%;
     height: 15px;
     border: 1px solid #202020;
   }
 
-  .book-progress .bar {
+  .outer-bar .bar {
     display: block;
     width: 0;
     height: 100%;
@@ -101,6 +117,7 @@ export default {
     border-width: 1px;
     border-style: solid;
     border-radius: 6px;
+    font-size: 10px;
   }
 
   .book-format-tag + .book-format-tag {

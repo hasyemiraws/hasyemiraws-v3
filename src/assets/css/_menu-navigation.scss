@@ -41,7 +41,7 @@
 	&__list-link {		
         list-style-type: none;     
         text-align: center;
-        width: 60%;
+        width: 85%;
         position: relative;
 
         @include breakpoint(phablet) {
@@ -52,7 +52,7 @@
 			font-size: 24px;
 		    font-weight: 800;
             letter-spacing: 7px;
-            line-height: 2em;
+            line-height: 1.2em;
 		    text-transform: uppercase;
 		    font-family: acumin-pro-wide, sans-serif;
 		    color: #fff;
@@ -83,6 +83,10 @@
 		    a {
 		    	color: inherit;
 		    }
+
+            & + li {
+                margin-top: 15px;
+            }
         }        
 	}	
 }
