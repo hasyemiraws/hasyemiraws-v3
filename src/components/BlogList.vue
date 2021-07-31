@@ -5,7 +5,7 @@
                 <div class="grid grid-cols-2 gap-5 md:gap-10">
                     <template v-for="(page, idx) in leftPages">
                         <div v-if="idx < 5" :key="page.node.id" :class="{'col-span-2': idx == 0}">
-                            <figure class="overflow-hidden mb-14">
+                            <figure class="post--wrapper mb-14">
                                 <g-link :to="getLinkLang(page.node)" :class="{'aspect-ratio-1-1': idx > 0}"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
                                 <figcaption class="post--label">                                                 
                                     <span class="post--category">
@@ -29,7 +29,7 @@
             </div>
             <div class="grid grid-cols-2 gap-5 md:grid-cols-1 md:gap-10">
                 <template v-for="(page, idx) in rightPages">
-                    <figure class="overflow-hidden mb-14" :key="page.node.id">
+                    <figure class="post--wrapper mb-14" :key="page.node.id">
                         <g-link :to="getLinkLang(page.node)" class="aspect-ratio-1-1-sm"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>
                         <figcaption class="post--label">                                                 
                             <span class="post--category">
@@ -64,7 +64,7 @@
                             a 50,50 0 1,0 100,0
                             a 50,50 0 1,0 -100,0" />
                 </defs>
-                <text id="brand--text" fill="#000" font-size="12" font-family="apercu medium" font-weight="bold" letter-spacing="12" width="100">
+                <text id="brand--text" fill="#000" font-size="12" font-family="acumin-pro-wide" font-weight="bold" letter-spacing="12" width="100">
                     <textPath xlink:href="#circle">MORE STORIES</textPath>
                 </text>
             </svg>
@@ -135,17 +135,35 @@ export default {
 
 <style>
     .post--label {
-        margin-top: 10px
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 15px;
+        margin-top: 15px
+    }
+
+    .post--wrapper {
+        border: 1.2px solid #202020;
+        border-radius: 3px;
+        align-self: start;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .post--wrapper a {
+        display: block;
+    }
+
+    .post--wrapper:hover {
+        box-shadow: -2px 2px 0px 2px #202020;
     }
 
     .post--category {
-        font-size: 13px;
-        font-family: 'apercu medium', sans-serif;
+        font-size: 12px;
+        font-family: 'acumin-pro', sans-serif;
         display: inline-block;
         background: #202020;
         color: white;
         padding: 4px 8px;
-        border-radius: 10px;
+        border-radius: 15px;
     }
 
     .post--category + .post--category {
@@ -160,7 +178,7 @@ export default {
     }
 
     .post--date {
-        font-family: 'apercu medium', sans-serif;
+        font-family: 'acumin-pro', sans-serif;
         font-size: 14px;
     }
 
@@ -186,7 +204,11 @@ export default {
         left: 50%;
         transform: translate(-50%, -50%);
         width: 20px;
+        transition: all 0.3s ease;
+    }
 
+    .about-me--more:hover .post--more-arrow {
+        transform: translate(calc(-50% + 5px), -50%);
     }
 
     #circular {

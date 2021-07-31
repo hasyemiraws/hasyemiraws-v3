@@ -9,9 +9,13 @@ module.exports = {
         component: './src/pages/AllPost.vue'
       },
       {
+        path: '/en/currently-reading/',
+        component: './src/pages/CurrentlyReading.vue'
+      },
+      {
         path: '/en/about/',
         component: './src/pages/About.vue'
-      }
+      },
     ],
     'in-id': [
       {
@@ -21,6 +25,10 @@ module.exports = {
       {
         path: '/all-post/',
         component: './src/pages/AllPost.vue'
+      },
+      {
+        path: '/currently-reading/',
+        component: './src/pages/CurrentlyReading.vue'
       },
       {
         path: '/about/',

@@ -106,13 +106,15 @@ export default {
     }
 
     .category {
-        font-size: 16px;
-        font-family: 'apercu medium', sans-serif;
+        font-size: 13px;
+        padding: 4px 8px;
+        border-radius: 15px;
+        font-family: 'acumin-pro-wide', sans-serif;
         display: inline-block;
+        text-transform: lowercase;
         border: 2px solid #202020;
         color: #202020;
-        padding: 4px 8px;
-        border-radius: 20px;
+        padding: 5px 8px;
     }
 
     .category a {
@@ -125,6 +127,6 @@ export default {
     }
 
     .category + .category {
-        margin-left: 10px;
+        margin-left: 15px;
     }
 </style>

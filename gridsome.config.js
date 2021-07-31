@@ -65,6 +65,7 @@ module.exports = {
         enablePathGeneration: false,
         routes: require('./routes.js'),
         rewriteDefaultLanguage: false, // rewrite default locale, default: true
+        messages: {}
       }
     }
   ],

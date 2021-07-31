@@ -7,19 +7,16 @@
       <!-- <p>I'm a Front End Developer from Indonesia currently living and work my daily life here in Kuala Lumpur, Malaysia. I write about books, code, and personal thoughts about life. Say hi <a class="footer__about--info--link" href="mailto:{{ site.email }}">hi@hasyemiraws.com</a>.</p> -->
       <div class="footer__about--social">
         <a target="_blank" href="https://twitter.com/hasyemiraws">
-          <i class="fa fa-twitter"></i>
+          <i class="fab fa-twitter"></i>
         </a>
         <a target="_blank" href="https://instagram.com/hasyemiraws">
-          <i class="fa fa-instagram"></i>
-        </a>
-        <a target="_blank" href="https://www.facebook.com/hasyemi.rafsanjani">
-          <i class="fa fa-facebook"></i>
+          <i class="fab fa-instagram"></i>
         </a>
         <a target="_blank" href="https://www.youtube.com/channel/UCzvyjUsomu2sdTbuBJHA9ag">
-          <i class="fa fa-youtube-play"></i>
+          <i class="fab fa-youtube"></i>
         </a>
         <a target="_blank" href="https://codepen.io/hasyemiraws">
-          <i class="fa fa-codepen"></i>
+          <i class="fab fa-codepen"></i>
         </a>
       </div>
       <small class="footer__about--copyright"
@@ -47,7 +44,7 @@
 }
 
 .footer__about--copyright {
-    font-family: "apercu medium", sans-serif;
+    font-family: "acumin-pro-wide", sans-serif;
     font-size: 11px;
 }
 

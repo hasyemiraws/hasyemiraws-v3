@@ -3,7 +3,7 @@
       <transition
         mode="out-in"
         appear
-        enter-active-class="animate__animated animate__fadeIn animate__fast animatie__delay-2s"
+        enter-active-class="animate__animated animate__fadeIn animate__fast"
         leave-active-class="animate__animated animate__fadeOut animate__faster">
       <div class="main">
           <slot />
@@ -11,6 +11,20 @@
       </transition>
   </div>
 </template>
+
+<page-query>
+query {
+  allCategories {
+      edges {
+          node {
+            name
+            slug
+            path
+          }
+      }
+  }
+}
+</page-query>
 
 <script>
 export default {

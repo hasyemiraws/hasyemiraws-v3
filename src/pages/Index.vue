@@ -23,21 +23,21 @@
                   <path
                     id="circle"
                     d="M 50, 50
-                                  m -50, 0
-                                  a 50,50 0 1,0 100,0
-                                  a 50,50 0 1,0 -100,0"
+                      m -50, 0
+                      a 50,50 0 1,0 100,0
+                      a 50,50 0 1,0 -100,0"
                   />
                 </defs>
                 <text
                   id="brand--text"
                   fill="#000"
                   font-size="10"
-                  font-family="apercu medium"
+                  font-family="acumin-pro-wide"
                   font-weight="bold"
                   letter-spacing="10"
                   width="100"
                 >
-                  <textPath xlink:href="#circle">MORE ABOUT ME</textPath>
+                  <textPath xlink:href="#circle">{{ $t('MORE ABOUT ME') }}</textPath>
                 </text>
               </svg>
             </g-link>
@@ -78,7 +78,17 @@
 
 <page-query>
 query {
-  allBlogPost(limit: 9, sortBy: "published_date", filter: {status: {eq: "published"}}) {
+  allCategories {
+      edges {
+          node {
+              name
+              slug
+              path
+          }
+      }
+  }
+
+  allBlogPost(limit: 5, sortBy: "published_date", filter: {status: {eq: "published"}}) {
     edges {
         node {
             id

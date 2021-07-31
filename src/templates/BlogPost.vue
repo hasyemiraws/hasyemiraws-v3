@@ -53,23 +53,33 @@
 
 <page-query>
 query ($id: ID!) {
-  blogPost(id: $id) {
-    title
-    title_en
-    description
-    description_en
-    content
-    content_en
-    author
-    category {
-        name
-        path
+    allCategories {
+        edges {
+            node {
+                name
+                slug
+                path
+            }
+        }
     }
-    published_date
-    featured_image {
-        path
+
+    blogPost(id: $id) {
+        title
+        title_en
+        description
+        description_en
+        content
+        content_en
+        author
+        category {
+            name
+            path
+        }
+        published_date
+        featured_image {
+            path
+        }
     }
-  }
 }
 </page-query>
 
@@ -167,18 +177,18 @@ export default {
     }
 
     .article--date {
-        font-family: 'apercu medium', sans-serif;
+        font-family: 'acumin-pro', sans-serif;
         font-size: 14px;
     }
 
     .article--category {
-        font-size: 13px;
-        font-family: 'apercu medium', sans-serif;
+        font-size: 12px;
+        font-family: 'acumin-pro', sans-serif;
         display: inline-block;
         background: #202020;
         color: white;
         padding: 4px 8px;
-        border-radius: 10px;
+        border-radius: 15px;
     }
 
     .article--category + .article--category {

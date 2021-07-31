@@ -1,6 +1,5 @@
 @import "./css/_variables.scss";
 @import "./css/_base.scss";
-@import "./css/_typography.scss";
 @import "./css/_mixins.scss";
 
 @import "./css/_menu-navigation";
@@ -8,6 +7,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    font-family: acumin-pro, sans-serif;
+}
 
 h1 {
     font-family: acumin-pro-wide, sans-serif;
@@ -33,9 +36,18 @@ h1 {
 
             .about-me--more {
                 position: absolute;
-                top: 60%;
+                top: 52%;
                 right: -65px;
                 padding: 0;
+
+                .post--more-arrow {
+                    transition: all 0.3s ease;
+                }
+            
+        
+                &:hover .post--more-arrow {
+                    transform: translate(calc(-50% + 5px), -50%);
+                }
             }
 
             @include breakpoint('mobile') {

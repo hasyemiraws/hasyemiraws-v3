@@ -3,7 +3,7 @@ import DefaultLayout from '~/layouts/Default.vue'
 import VueDisqus from 'vue-disqus'
 import 'animate.css';
 
-export default function (Vue, { router, head, isClient }) {
+export default function (Vue, { router, head, isClient, appOptions }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   Vue.use(VueDisqus)
@@ -24,6 +24,16 @@ export default function (Vue, { router, head, isClient }) {
       href: "https://use.typekit.net/npd1ibg.css"
     }
   )
+
+  head.link.push(
+    {
+      rel: "stylesheet",
+      href: "https://use.fontawesome.com/releases/v5.15.3/css/all.css",
+      integrity: "sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk",
+      crossorigin: "anonymous"
+    }
+  )
+
   head.meta.push(
     {
       name: 'keywords',
@@ -67,4 +77,7 @@ export default function (Vue, { router, head, isClient }) {
      `gtag('config', 'G-1QF3XWFT3G');`
   })
   
+
+  appOptions.i18n.setLocaleMessage('in-id', require('./locales/in-id.json'))
+  appOptions.i18n.setLocaleMessage('en-us', require('./locales/en-us.json'))
 }
