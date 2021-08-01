@@ -13,6 +13,20 @@
   </Layout>
 </template>
 
+<page-query>
+query {
+  allCategories {
+      edges {
+          node {
+              name
+              slug
+              path
+          }
+      }
+  }
+}
+</page-query>
+
 <script>
 import axios from 'axios'
 
