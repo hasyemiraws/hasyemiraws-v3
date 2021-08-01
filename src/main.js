@@ -77,7 +77,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
      `gtag('config', 'G-1QF3XWFT3G');`
   })
   
-
   appOptions.i18n.setLocaleMessage('in-id', require('./locales/in-id.json'))
   appOptions.i18n.setLocaleMessage('en-us', require('./locales/en-us.json'))
 }

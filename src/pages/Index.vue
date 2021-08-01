@@ -49,29 +49,49 @@
       <h1 class="section--title">Blogs/</h1>
       <BlogList :pages="$page.allBlogPost.edges" />
     </section>
-    <!-- <section class="container--full-width py-10">
-      <div class="container section mx-auto">
+    <hr/>
+    <section class="container section py-10">
+      <div class="flex items-center justify-between">
         <h1 class="section--title">Youtube/</h1>
-        <div class="grid grid-cols-4 gap-10">
-          <figure :class="{'col-span-3 row-span-2': idx == 0}" v-for="(video, idx) in $page.allYoutube.edges" :key="video.node.id" class="overflow-hidden">
-              <g-link :to="video.node.path"><img data-object-fit class="lazy w-full rounded-lg" :data-src="video.node.featured_image"/></g-link>
-              <figcaption class="post--label">                                                 
-                  <span class="post--category">
-                      <a href="#">
-                          category
-                      </a>
-                  </span>
-
-                  <g-link :to="video.node.path">
-                      <h3 class="post--title">                              
-                          {{ video.node.title }}                              
-                      </h3>
-                  </g-link>          
-              </figcaption>
-          </figure>
-        </div>
+        <span class="g-ytsubscribe" data-channelid="UCzvyjUsomu2sdTbuBJHA9ag" data-layout="default" data-count="default"></span>
       </div>
-    </section> -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <figure :class="{'md:col-span-2 row-span-5 latest-video': idx == 0}" v-for="(video, idx) in $page.allYoutube.edges" :key="video.node.id" class="overflow-hidden youtube-post-wrap">
+            <a :href="video.node.slug"><img data-object-fit class="lazy w-full rounded-md" :data-src="video.node.featured_image"/></a>
+            <figcaption class="post--label">
+                <span class="post--category" v-if="idx == 0">
+                    <a>
+                      LATEST VIDEO
+                    </a>
+                </span>
+                <a :href="video.node.slug">
+                    <h3 class="post--title">                              
+                        {{ video.node.title }}                              
+                    </h3>
+                    <span class="post--date">{{ new Date(video.node.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span>          
+                </a>          
+            </figcaption>
+        </figure>
+      </div>
+      <span class="post--more">
+          <a href="https://youtube.com/c/hasyemiraws">
+          <g-image class="post--more-arrow" src="~/assets/images/right-arrow.svg" />
+          <svg id="circular" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                  <path id="circle" 
+                      d="M 50, 50
+                          m -50, 0
+                          a 50,50 0 1,0 100,0
+                          a 50,50 0 1,0 -100,0" />
+              </defs>
+              <text id="brand--text" fill="#000" font-size="12" font-family="acumin-pro-wide" font-weight="bold" letter-spacing="12" width="100">
+                  <textPath xlink:href="#circle">MORE VIDEOS</textPath>
+              </text>
+          </svg>
+          </a>
+      </span>      
+    </section>
+    <hr/>
     <!-- <PlaygroundHome/> -->
   </Layout>
 </template>
@@ -107,6 +127,18 @@ query {
         }
     }
   }
+
+  allYoutube {
+    edges {
+      node {
+        title
+        slug
+        date
+        playlist
+        featured_image
+      }
+    }
+  }
 }
 </page-query>
 
@@ -116,8 +148,30 @@ import PlaygroundHome from "../components/PlaygroundHome";
 
 export default {
   metaInfo: {
-    title: 'High Functional Introvert. Full Time Learner. Part time stalker.'
+    title: 'High Functional Introvert. Full Time Learner. Part time stalker.',
+    script: [
+      {
+        src: "https://apis.google.com/js/platform.js"
+      }
+    ]
   },
   components: {BlogList, PlaygroundHome}
 }
 </script>
+
+<style scoped>
+.youtube-post-wrap:not(.latest-video) {
+  display: inline-flex;
+}
+
+.youtube-post-wrap:not(.latest-video) img {
+  width: 110px;
+  max-width: 110px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.youtube-post-wrap:not(.latest-video) figcaption {
+  margin-top: 0;
+}
+</style>

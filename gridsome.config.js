@@ -41,8 +41,7 @@ module.exports = {
       use: '@gridsome/source-filesystem',
       options: {
         path: 'content/youtube/*.md',
-        typeName: 'Youtube',
-        route: '/videos/:slug'
+        typeName: 'Youtube'
       }
     },
     {
