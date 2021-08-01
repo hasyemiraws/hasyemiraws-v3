@@ -14,9 +14,12 @@
                 </span>
             </div>   
             <h1 class="text-5xl my-10 mt-16 categories__title">{{ $page.categories.name | uppercase }}</h1> 
-            <section>
+            <section v-if="$page.allBlogPost.edges.length > 0">
                 <BlogList :pages="$page.allBlogPost.edges" :show-more-stories="false" />
                 <Pager class="categories__navigation" :info="$page.allBlogPost.pageInfo"/>
+            </section>
+            <section v-else>
+                <h1>No post yet</h1>
             </section>
         </div>
     </Layout>
