@@ -113,18 +113,14 @@ export default {
     },
     methods: {
         getAttributeLang(key, node) {
-            if (this.currentLang == 'en') {
+            if (this.currentLang == 'en' && node[`${key}_en`]) {
                 if (node[`${key}_en`] != '') return node[`${key}_en`];
             } 
 
             return node[key];
         },
         getLinkLang(node) {
-            if (this.currentLang == 'en') {
-                return this.$tp(node.path_en, 'en-us', true)
-            }
-
-            return node.path;
+            return this.$tp(node.path)
         }
     },
     mounted() {

@@ -1,0 +1,191 @@
+<template>
+    <Layout>
+        <section class="post--section content--section">  
+            <div class="container container__post mt-10 md:mt-20 max-w-2xl mx-auto">
+                <h2 class="article--title text-3xl">{{ $page.anotasiDaily.id }} {{ $page.anotasiDaily.title }}</h2>
+
+                <article class="article--post my-10">
+                
+                    <div class="article--post-content" v-html="$page.anotasiDaily.content">
+                    </div>
+
+                    <div class="article--comments mt-10">
+                        <Disqus
+                            shortname="hasyemiraws"
+                            :identifier="$page.anotasiDaily.title"/>
+                    </div>
+
+                </article>
+            </div>
+        </section>
+    </Layout>
+</template>
+
+
+<page-query>
+query ($id: ID!) {
+    allCategories(filter: {name: {ne: "anotasi daily"}}) {
+        edges {
+            node {
+                name
+                slug
+                path
+            }
+        }
+    }
+
+    anotasiDaily(id: $id) {
+        title
+        id
+        content
+        date
+    }
+}
+</page-query>
+
+<script>
+import LazyLoad from 'vanilla-lazyload'
+import VueMarkdown from 'vue-markdown'
+export default {
+    metaInfo () {
+        return this.$seo({
+            title: this.$page.anotasiDaily.title, 
+            openGraph: {
+                title: this.$page.anotasiDaily.title, 
+                type: 'article'
+            },
+            twitter: {
+                title: this.$page.anotasiDaily.title, 
+                type: 'summary'
+            },
+            script: [
+                {
+                    src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+                    async: true
+                },
+                {
+                    src: 'https://www.googletagmanager.com/gtag/js?id=G-1QF3XWFT3G',
+                    async: true
+                },
+                {
+                    innerHTML: `window.dataLayer = window.dataLayer || [];` +
+                        `function gtag(){dataLayer.push(arguments);}` +
+                        `gtag('js', new Date());` +
+                        `gtag('config', 'G-1QF3XWFT3G');`
+                }
+            ],
+            link: [
+                {
+                    rel: "stylesheet",
+                    href: "https://use.typekit.net/npd1ibg.css"
+                },
+                {
+                    rel: "stylesheet",
+                    href: "https://use.fontawesome.com/releases/v5.15.3/css/all.css",
+                    integrity: "sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk",
+                    crossorigin: "anonymous"
+                }
+            ]
+        })
+    },
+    mounted() {
+        new LazyLoad({});
+    },
+    components: {
+        VueMarkdown
+    }
+}
+</script>
+
+<style scoped>
+    .ads.top {
+        margin-bottom: 15px;   
+    }
+
+    .ads.bottom {
+        margin-top: 15px;   
+    }
+
+    .article--date {
+        font-family: 'acumin-pro', sans-serif;
+        font-size: 14px;
+    }
+
+    .article--category {
+        font-size: 12px;
+        font-family: 'acumin-pro', sans-serif;
+        display: inline-block;
+        background: #202020;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 15px;
+    }
+
+    .article--category + .article--category {
+        margin-left: 5px;
+    }
+
+    .article--title {
+        font-weight: 700;
+        letter-spacing: 1px;
+        font-family: acumin-pro-semi-condensed, sans-serif;
+    }
+
+    .article--featured-wrap {
+        width: 100vw;
+        margin-left: -moz-calc(50% - 50vw);
+        margin-right: -moz-calc(50% - 50vw);
+        margin-left: -webkit-calc(50% - 50vw);
+        margin-right: -webkit-calc(50% - 50vw);
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        height: 60vh;
+        overflow: hidden;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-attachment: fixed;
+    }
+
+    @media (max-width: 480px) {
+        .article--featured-wrap {
+            background-attachment: initial;
+        }
+    }
+</style>
+
+<style>
+    .article--audio {
+        width: 100%;
+        margin-top: 3px;
+        margin-bottom: 15px;
+    }
+
+    .article--post-content a {
+        border-bottom: 1px dashed #202020;
+    }
+
+    .article--post p {
+        font-family: basic-sans, sans-serif;
+        font-style: normal;
+        font-size: 1.1em;
+        line-height: 1.75em;
+    }
+
+    .article--post p + p {
+        margin-top: 25px;
+    }
+
+    .article--post figure {
+        margin-top: 10px;
+    }
+
+    .article--post figure img {
+        margin: 0 auto;
+    }
+
+    .article--post figure figcaption {
+        margin-top: 5px;
+        text-align: center;
+    }
+</style>   

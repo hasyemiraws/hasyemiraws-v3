@@ -32,9 +32,9 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'content/posts/*.md',
-        typeName: 'Post',
-        route: '/blog/:slug'
+        path: 'content/anotasi-daily/*.md',
+        typeName: 'AnotasiDaily',
+        route: '/anotasi-daily/:slug'
       }
     },
     {
@@ -61,7 +61,7 @@ module.exports = {
         fallbackLocale: 'in-id', // fallback language
         defaultLocale: 'in-id', // default language
         enablePathRewrite: true,
-        enablePathGeneration: false,
+        enablePathGeneration: true,
         routes: require('./routes.js'),
         rewriteDefaultLanguage: false, // rewrite default locale, default: true
         messages: {}
@@ -74,29 +74,12 @@ module.exports = {
         name: "default",
         path: '/blog/:slug',
         component: './src/templates/BlogPost.vue'
-      },
-      {
-        name: 'en',
-        path: (node) => {
-          if (node.slug_en !== null) {
-            return `/en/blog/${node.slug_en}`
-          } else {
-            return `/en/blog/${node.slug}`
-          }
-        },
-        component: './src/templates/BlogPost.vue'
       }
     ],
     Categories: [
       {
         path: (node) => {
           return `/categories/${node.slug}`
-        }
-      },
-      {
-        name: 'en',
-        path: (node) => {
-          return `/en/categories/${node.slug}`
         },
         component: './src/templates/Categories.vue'
       }

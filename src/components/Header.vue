@@ -4,16 +4,19 @@
             <div class="menu__overlay--container">
             <ul class="menu__list-link">
                 <li>
-                    <g-link :to="$tp('/all-post/')" :title="$t('tulisan')">{{ $t('tulisan') }}</g-link>
+                    <a href="#" @click="handleLinkClick('/about/')" :title="$t('tulisan')">{{ $t('tulisan') }}</a>
                 </li>
                 <li>
                     <a target="_blank" href="https://www.youtube.com/c/hasyemiraws" :title="$t('youtube')">{{ $t('youtube') }}</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#" :title="$t('membaca')">{{ $t('membaca') }}</a>
+                </li> -->
+                <li>
+                    <a href="#" @click="handleLinkClick('/currently-reading/')" :title="$t('sedang baca')">{{ $t('sedang baca') }}</a>
                 </li>
                 <li>
-                    <g-link :to="$tp('/about/')" :title="$t('tentang')">{{ $t('tentang') }}</g-link>
+                    <a href="#" @click="handleLinkClick('/about/')" :title="$t('tentang')">{{ $t('tentang') }}</a>
                 </li>
             </ul>
             </div>
@@ -27,13 +30,18 @@
                     </span>
                 </g-link>
                 <nav class="nav__desktop">
-                    <ul class="nav__item">
+                    <transition
+                        mode="out-in"
+                        appear
+                        enter-active-class="animate__animated animate__fadeIn animate__fast"
+                        leave-active-class="animate__animated animate__fadeOut animate__faster">
+                    <ul class="nav__item" :key="$i18n.locale">
                         <li>
-                            <g-link :to="$tp('/all-post/')" :title="$t('tulisan')">{{ $t('tulisan') }}</g-link>
+                            <g-link :to="$tp('/all-post/', $context.locale, true)" :title="$t('tulisan')">{{ $t('tulisan') }}</g-link>
 
                             <ul class="nav__subitem">
                                 <li v-for="cat in $page.allCategories.edges" :key="cat.node.name">
-                                    <g-link :to="$tp(cat.node.path)">
+                                    <g-link :to="$tp(cat.node.path, $context.locale, true)">
                                         {{ cat.node.name }}
                                     </g-link>
                                 </li>
@@ -59,6 +67,7 @@
                             <g-link :to="$tp('/about/')" :title="$t('tentang')">{{ $t('tentang') }}</g-link>
                         </li>
                     </ul>
+                    </transition>
                     <div class="header__nav--lang">
                         <span class="header__nav--lang-label" @click="toggleDropdown">
                             {{currentLocale}}
@@ -291,7 +300,8 @@ import HamburgerMenu from "./HamburgerMenu";
 export default {
     data() {
         return {
-            langSelectorOpen: false
+            langSelectorOpen: false,
+            currLocale: this.$i18n.locale.toString(),
         }
     },
     computed: {

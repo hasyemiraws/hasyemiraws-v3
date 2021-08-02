@@ -1,14 +1,19 @@
 <template>
-    <Layout>
+    <Layout :key="$page.categories.name">
         <div>
             <div class="my-5 category-wrapper">
                 <span class="category">
-                    <g-link :to="$tp('/all-post/')">
+                    <g-link :to="$tp('/all-post/', $context.locale, true)">
                         All Posts
                     </g-link>
                 </span>
+                <span class="category">
+                    <g-link :to="$tp('/anotasi-daily/')">
+                        anotasi daily
+                    </g-link>
+                </span>
                 <span class="category" :class="{'active': cat.node.name == $page.categories.name}" v-for="cat in $page.allCategories.edges" :key="cat.node.name">
-                    <g-link :to="$tp(cat.node.path)">
+                    <g-link :to="$tp(cat.node.path, $context.locale, true)">
                         {{ cat.node.name }}
                     </g-link>
                 </span>
@@ -32,7 +37,7 @@ query($page: Int, $id: ID!) {
         name
     }
 
-    allCategories {
+    allCategories(filter: {name: {ne: "anotasi daily"}}) {
         edges {
             node {
                 name
@@ -60,6 +65,7 @@ query($page: Int, $id: ID!) {
                     path
                 }
                 path
+                path_en: path(to:"en")
             }
         }
     }
@@ -84,6 +90,34 @@ export default {
                 title: this.$page.categories.name,
                 type: 'summary'
             },
+            script: [
+                {
+                    src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+                    async: true
+                },
+                {
+                    src: 'https://www.googletagmanager.com/gtag/js?id=G-1QF3XWFT3G',
+                    async: true
+                },
+                {
+                    innerHTML: `window.dataLayer = window.dataLayer || [];` +
+                        `function gtag(){dataLayer.push(arguments);}` +
+                        `gtag('js', new Date());` +
+                        `gtag('config', 'G-1QF3XWFT3G');`
+                }
+            ],
+            link: [
+                {
+                    rel: "stylesheet",
+                    href: "https://use.typekit.net/npd1ibg.css"
+                },
+                {
+                    rel: "stylesheet",
+                    href: "https://use.fontawesome.com/releases/v5.15.3/css/all.css",
+                    integrity: "sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk",
+                    crossorigin: "anonymous"
+                }
+            ]
         })
     },
     components: {BlogList, Pager},
@@ -92,6 +126,14 @@ export default {
     },
     mounted() {
         new LazyLoad({});
+    },
+    created() {
+        const fullPathArr = this.$route.fullPath.split('/'); 
+        if (fullPathArr[1] == 'en') {
+            this.$i18n.locale = 'en-us'
+            this.$context.locale = 'en-us';
+            this.$route.meta.locale = 'en-us';
+        }
     }
 }
 </script>

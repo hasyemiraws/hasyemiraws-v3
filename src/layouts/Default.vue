@@ -5,27 +5,12 @@
         appear
         enter-active-class="animate__animated animate__fadeIn animate__fast"
         leave-active-class="animate__animated animate__fadeOut animate__faster">
-      <div class="main">
+      <div class="main" :key="$i18n.locale">
           <slot />
       </div>
       </transition>
   </div>
 </template>
-
-<page-query>
-query {
-  allCategories {
-      edges {
-          node {
-            name
-            slug
-            path
-          }
-      }
-  }
-}
-</page-query>
-
 <script>
 export default {
   data() {
@@ -76,8 +61,6 @@ export default {
 
 <style>
 body {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.5;

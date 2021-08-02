@@ -1,12 +1,12 @@
 <template>
     <Layout>
         <div class="my-5 category-wrapper">
-            <span class="category active">
+            <span class="category">
                 <g-link :to="$tp('/all-post/')">
                     All Posts
                 </g-link>
             </span>
-            <span class="category">
+            <span class="category active">
                 <g-link :to="$tp('/anotasi-daily/')">
                     anotasi daily
                 </g-link>
@@ -17,16 +17,20 @@
                 </g-link>
             </span>
         </div>   
-        <h1 class="text-5xl my-10 mt-16 categories__title">ALL POSTS</h1> 
-        <section>
-            <BlogList :pages="$page.allBlogPost.edges" :show-more-stories="false" />
-            <Pager class="categories__navigation" :info="$page.allBlogPost.pageInfo"/>
-        </section>
+        <h1 class="text-5xl my-10 mt-16 categories__title">anotasi daily</h1> 
+        <ul>
+          <li class="mb-10" v-for="anotasi in $page.allAnotasiDaily.edges" :key="anotasi.id">
+            <g-link :to="$tp(anotasi.node.path)">
+              <h3 class="text-2xl">{{ anotasi.node.title }} <small>({{ anotasi.node.timeToRead }} min)</small></h3>
+              <span class="post--date">{{ new Date(anotasi.node.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span>          
+            </g-link>
+          </li>
+        </ul>
     </Layout>
 </template>
 
 <page-query>
-query($page: Int) {
+query {
     allCategories(filter: {name: {ne: "anotasi daily"}}) {
         edges {
             node {
@@ -37,29 +41,17 @@ query($page: Int) {
         }
     }
 
-    allBlogPost(sortBy: "published_date", perPage: 9, page: $page, filter: {status: {eq: "published"}}) @paginate {
-        pageInfo {
-            totalPages
-            currentPage
-        }
-        edges {
-            node {
-                id
-                title
-                title_en
-                category {
-                    name
-                    path
-                }
-                published_date
-                featured_image {
-                    path
-                }
-                path
-                path_en: path(to:"en")
-            }
-        }
+    allAnotasiDaily {
+    edges {
+      node {
+        title
+        timeToRead
+        id
+        date
+        path
+      }
     }
+  }
 }
 </page-query>
 

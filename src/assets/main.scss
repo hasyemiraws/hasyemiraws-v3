@@ -108,6 +108,10 @@ h1 {
 }
 
 @include breakpoint('mobile') {
+    .section--title {
+        font-size: 3em;
+    }
+
     .aspect-ratio-1-1-sm  {
         position: relative;
         display: block;

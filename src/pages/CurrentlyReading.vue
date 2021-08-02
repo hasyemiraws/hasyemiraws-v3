@@ -5,7 +5,7 @@
     <transition name="fade">
       <ul class="mt-2" v-if="books.length > 0">
         <li v-for="book in books" :key="book.id" class="book-item">
-          <img class="book-thumb" :src="book.properties.Cover.url"/>
+          <img v-if="book.properties.Cover" class="book-thumb" :src="book.properties.Cover.url"/>
           <div>
             <div style="margin-bottom: 3px">
               <span class="book-name">{{ book.properties.Book.title[0].text.content }}</span>
@@ -28,7 +28,7 @@
 
 <page-query>
 query {
-  allCategories {
+  allCategories(filter: {name: {ne: "anotasi daily"}}) {
       edges {
           node {
               name

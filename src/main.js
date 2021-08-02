@@ -18,22 +18,6 @@ export default function (Vue, { router, head, isClient, appOptions }) {
     return value.toUpperCase()
   })
 
-  head.link.push(
-    {
-      rel: "stylesheet",
-      href: "https://use.typekit.net/npd1ibg.css"
-    }
-  )
-
-  head.link.push(
-    {
-      rel: "stylesheet",
-      href: "https://use.fontawesome.com/releases/v5.15.3/css/all.css",
-      integrity: "sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk",
-      crossorigin: "anonymous"
-    }
-  )
-
   head.meta.push(
     {
       name: 'keywords',
@@ -58,6 +42,22 @@ export default function (Vue, { router, head, isClient, appOptions }) {
     { name: "twitter:creator", content: "Hasyemi Rafsanjani Asyari" },
     { name: "robots", content: "index, follow" },
     { name: "google-site-verification", content: "JORh0NC0333783L9OQ8J5Fs-JM21GF3NcnP7lekDtHw" }
+  )
+
+  head.link.push(
+    {
+      rel: "stylesheet",
+      href: "https://use.typekit.net/npd1ibg.css"
+    }
+  )
+
+  head.link.push(
+    {
+      rel: "stylesheet",
+      href: "https://use.fontawesome.com/releases/v5.15.3/css/all.css",
+      integrity: "sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk",
+      crossorigin: "anonymous"
+    }
   )
 
   head.script.push({
