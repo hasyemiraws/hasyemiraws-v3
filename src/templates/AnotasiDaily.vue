@@ -15,7 +15,7 @@
 
                 <article class="article--post my-10">
                 
-                    <div class="article--post-content">
+                    <div class="article--post-content" ref="post-content">
                         <vue-markdown :source="$page.anotasiDaily.content"></vue-markdown>
                     </div>
 
@@ -98,8 +98,21 @@ export default {
             ]
         })
     },
+    methods: {
+        reloadScript(src) {
+            var zScript = document.createElement('script');
+            zScript.setAttribute('src',src);
+            zScript.setAttribute('async',true);
+            this.$refs['post-content'].appendChild(zScript);
+        }
+    },
     mounted() {
         new LazyLoad({});
+        let zScript = this.$refs['post-content'].querySelector("z-script");
+        if (zScript) {
+            this.reloadScript(zScript.getAttribute('src'))
+        }
+        
     },
     components: {
         VueMarkdown
@@ -222,6 +235,28 @@ export default {
 
     .article--post figure figcaption {
         margin-top: 5px;
+        text-align: center;
+    }
+
+    .article--post-content .blockquote {
+        padding: 30px 25px 30px;
+        position: relative;
+    }
+
+    .article--post-content .blockquote:before {
+        position: absolute;
+        top: -20px;
+        content: "\"";
+        left: -10px;
+        font-size: 200px;
+        line-height: normal;
+        color: rgba(0,0,0,0.1);
+    }
+
+    .article--post-content .blockquote {
+        font-size: 18px;
+        line-height: 26px;
+        font-weight: 500;
         text-align: center;
     }
 </style>   

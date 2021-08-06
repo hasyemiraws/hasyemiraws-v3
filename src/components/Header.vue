@@ -73,7 +73,7 @@
                         </li>
                     </ul>
                     </transition>
-                    <div class="header__nav--lang">
+                    <!-- <div class="header__nav--lang">
                         <span class="header__nav--lang-label" @click="toggleDropdown">
                             {{currentLocale}}
                         </span>
@@ -82,7 +82,7 @@
                                 <a @click.prevent.stop="changeLocale(lang)" href="#">{{ lang }}</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </nav>
 
                 <span class="hamburger-menu" @click="showMenu">
