@@ -4,7 +4,7 @@
             <div class="menu__overlay--container">
             <ul class="menu__list-link">
                 <li>
-                    <a href="#" @click="handleLinkClick('/about/')" :title="$t('tulisan')">{{ $t('tulisan') }}</a>
+                    <a href="#" @click.prevent.stop="handleLinkClick('/all-post/')" :title="$t('tulisan')">{{ $t('tulisan') }}</a>
                 </li>
                 <li>
                     <a target="_blank" href="https://www.youtube.com/c/hasyemiraws" :title="$t('youtube')">{{ $t('youtube') }}</a>
@@ -13,10 +13,10 @@
                     <a href="#" :title="$t('membaca')">{{ $t('membaca') }}</a>
                 </li> -->
                 <li>
-                    <a href="#" @click="handleLinkClick('/currently-reading/')" :title="$t('sedang baca')">{{ $t('sedang baca') }}</a>
+                    <a href="#" @click.prevent.stop="handleLinkClick('/currently-reading/')" :title="$t('sedang baca')">{{ $t('sedang baca') }}</a>
                 </li>
                 <li>
-                    <a href="#" @click="handleLinkClick('/about/')" :title="$t('tentang')">{{ $t('tentang') }}</a>
+                    <a href="#" @click.prevent.stop="handleLinkClick('/about/')" :title="$t('tentang')">{{ $t('tentang') }}</a>
                 </li>
             </ul>
             </div>
@@ -40,6 +40,11 @@
                             <g-link :to="$tp('/all-post/', $context.locale, true)" :title="$t('tulisan')">{{ $t('tulisan') }}</g-link>
 
                             <ul class="nav__subitem">
+                                <li>
+                                    <g-link :to="$tp('/anotasi-daily/')">
+                                        anotasi daily
+                                    </g-link>
+                                </li>
                                 <li v-for="cat in $page.allCategories.edges" :key="cat.node.name">
                                     <g-link :to="$tp(cat.node.path, $context.locale, true)">
                                         {{ cat.node.name }}
@@ -376,7 +381,7 @@ export default {
             hamburgerMenu.classList.toggle('active');
             
             this.$router.push({
-                path: this.$tp(path)
+                path: this.$tp(path, this.$i18n.locale.toString(), true)
             })
         }
     }

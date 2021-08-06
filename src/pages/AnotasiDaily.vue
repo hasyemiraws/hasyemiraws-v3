@@ -19,10 +19,13 @@
         </div>   
         <h1 class="text-5xl my-10 mt-16 categories__title">anotasi daily</h1> 
         <ul>
-          <li class="mb-10" v-for="anotasi in $page.allAnotasiDaily.edges" :key="anotasi.id">
-            <g-link :to="$tp(anotasi.node.path)">
-              <h3 class="text-2xl">{{ anotasi.node.title }} <small>({{ anotasi.node.timeToRead }} min)</small></h3>
-              <span class="post--date">{{ new Date(anotasi.node.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span>          
+        <li class="mb-10 pb-3 border-b-2 border-gray" v-for="anotasi in $page.allAnotasiDaily.edges" :key="anotasi.id">
+            <g-link :to="$tp(anotasi.node.path)" class="flex" style="font-family: acumin-pro-wide, sans-serif">
+              <span style="flex-basis: 30px; max-width: 30px;" class="mr-10 text-4xl text-gray-500">{{ anotasi.node.number }}</span>
+              <div>
+                <h3 class="text-3xl uppercase">{{ anotasi.node.title }} </h3>
+                <span class="post--date">{{ new Date(anotasi.node.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span>          
+              </div>
             </g-link>
           </li>
         </ul>
@@ -45,8 +48,7 @@ query {
     edges {
       node {
         title
-        timeToRead
-        id
+        number
         date
         path
       }

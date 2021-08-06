@@ -98,7 +98,7 @@
         <ul>
           <li class="mb-10 pb-3 border-b-2 border-gray" v-for="anotasi in $page.allAnotasiDaily.edges" :key="anotasi.id">
             <g-link :to="$tp(anotasi.node.path)" class="flex" style="font-family: acumin-pro-wide, sans-serif">
-              <span class="mr-10 text-2xl text-gray-500">{{ anotasi.node.id }}</span>
+              <span style="flex-basis: 30px; max-width: 30px;" class="mr-10 text-4xl text-gray-500">{{ anotasi.node.number }}</span>
               <div>
                 <h3 class="text-3xl uppercase">{{ anotasi.node.title }} </h3>
                 <span class="post--date">{{ new Date(anotasi.node.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span>          
@@ -148,8 +148,7 @@ query {
     edges {
       node {
         title
-        timeToRead
-        id
+        number
         date
         path
       }

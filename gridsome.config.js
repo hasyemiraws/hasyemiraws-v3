@@ -32,14 +32,6 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'content/anotasi-daily/*.md',
-        typeName: 'AnotasiDaily',
-        route: '/anotasi-daily/:slug'
-      }
-    },
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
         path: 'content/youtube/*.md',
         typeName: 'Youtube'
       }
@@ -74,6 +66,13 @@ module.exports = {
         name: "default",
         path: '/blog/:slug',
         component: './src/templates/BlogPost.vue'
+      }
+    ],
+    AnotasiDaily: [
+      {
+        name: "default",
+        path: '/anotasi-daily/:number/:slug',
+        component: './src/templates/AnotasiDaily.vue'
       }
     ],
     Categories: [

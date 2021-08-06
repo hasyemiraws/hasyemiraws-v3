@@ -4,8 +4,10 @@ module.exports = function (api) {
   api.loadSource(async ({ addCollection, store }) => {
     const blogposts = await axios.get('https://api.hasyemiraws.com/api/collections/get/blogs?token=57ab7bfaa19c4967387094169487f7')
     const categories = await axios.get('https://api.hasyemiraws.com/api/collections/get/categories?token=57ab7bfaa19c4967387094169487f7')
+    const anotasiDaily = await axios.get('https://api.hasyemiraws.com/api/collections/get/anotasi_daily?token=57ab7bfaa19c4967387094169487f7')
     const posts = blogposts.data.entries
     const categoriesData = categories.data.entries
+    const anotasiDailyData = anotasiDaily.data.entries
     const langs = ['id', 'en']
 
     const blogCollection = addCollection({
@@ -16,8 +18,16 @@ module.exports = function (api) {
       typeName: 'Categories'
     })
 
+    const anotasiDailyCollection = addCollection({
+      typeName: 'AnotasiDaily'
+    })
+
     for (const category of categoriesData) {
       categoriesCollection.addNode({...category})
+    }
+
+    for (const anotasi of anotasiDailyData) {
+      anotasiDailyCollection.addNode({...anotasi})
     }
 
     for (const post of posts) {

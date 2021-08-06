@@ -2,11 +2,21 @@
     <Layout>
         <section class="post--section content--section">  
             <div class="container container__post mt-10 md:mt-20 max-w-2xl mx-auto">
-                <h2 class="article--title text-3xl">{{ $page.anotasiDaily.id }} {{ $page.anotasiDaily.title }}</h2>
+                
+                <div>
+                    <span class="article--category">
+                        <g-link :to="$tp('/anotasi-daily/')">
+                            anotasi daily
+                        </g-link>
+                    </span>
+                </div>
+                <h2 class="article--title text-3xl">{{ $page.anotasiDaily.title }}</h2>
+                <span class="article--date">{{ new Date($page.anotasiDaily.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span>
 
                 <article class="article--post my-10">
                 
-                    <div class="article--post-content" v-html="$page.anotasiDaily.content">
+                    <div class="article--post-content">
+                        <vue-markdown :source="$page.anotasiDaily.content"></vue-markdown>
                     </div>
 
                     <div class="article--comments mt-10">
@@ -36,7 +46,7 @@ query ($id: ID!) {
 
     anotasiDaily(id: $id) {
         title
-        id
+        number
         content
         date
     }
@@ -165,8 +175,11 @@ export default {
         border-bottom: 1px dashed #202020;
     }
 
-    .article--post p {
+    .article--post-content * {
         font-family: basic-sans, sans-serif;
+    }
+
+    .article--post p {
         font-style: normal;
         font-size: 1.1em;
         line-height: 1.75em;
@@ -178,6 +191,29 @@ export default {
 
     .article--post figure {
         margin-top: 10px;
+    }
+
+    .article--post-content img {
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 15px
+    }
+
+    .article--post-content h2 {
+        font-size: 1.7em;
+    }
+
+    .article--post-content ol, .article--post-content ul {
+        list-style: auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .article--post-content ol li, .article--post-content ul li {
+        margin-bottom: 10px;
+        font-size: 1.1em;
     }
 
     .article--post figure img {
