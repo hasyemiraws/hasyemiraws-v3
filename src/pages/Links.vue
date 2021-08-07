@@ -1,21 +1,21 @@
 <template>
   <Layout>
-    <div class="text-center">
-        <h1 class="text-3xl mt-10">YANG BARU DARI @hasyemiraws</h1>
-        <h2 class="text-2xl">☟☟☟☟☟☟☟☟☟☟</h2> 
+    <div>
+      <h1 class="text-3xl mt-16 page-title">Konten baru</h1> 
+      <h2 class="text-2xl">☟☟☟☟☟☟☟☟☟☟</h2> 
 
-        <ul class="links__container mt-10">
-            <li class="links__list" v-for="link in links" :key="link._id">
-                <a class="links__href" :href="link.url">{{ link.label }}</a>
-            </li>
-        </ul>
+      <ul class="links__container mt-10">
+          <li class="links__list" v-for="link in links" :key="link._id">
+              <a class="links__href" :href="link.url">{{ link.label }}</a>
+          </li>
+      </ul>
     </div>
   </Layout>
 </template>
 
 <page-query>
 query {
-  allCategories(filter: {name: {ne: "anotasi daily"}}) {
+  allCategories {
       edges {
           node {
               name
@@ -54,6 +54,11 @@ export default {
 </script>
 
 <style scoped>
+    .page-title {
+      font-family: acumin-pro-wide, sans-serif;
+      letter-spacing: 1.5px;
+    }
+
     .links__container {
         display: inline-block;
     }

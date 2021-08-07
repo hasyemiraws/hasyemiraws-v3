@@ -9,7 +9,7 @@
 
 <page-query>
 query {
-  allCategories(filter: {name: {ne: "anotasi daily"}}) {
+  allCategories {
       edges {
           node {
               name

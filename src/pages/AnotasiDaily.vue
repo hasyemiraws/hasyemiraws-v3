@@ -34,7 +34,7 @@
 
 <page-query>
 query {
-    allCategories(filter: {name: {ne: "anotasi daily"}}) {
+    allCategories {
         edges {
             node {
                 name
@@ -80,7 +80,10 @@ export default {
 
 <style>
     .categories__title {
-        font-family: acumin-pro-wide, sans-serif
+        font-family: acumin-pro-wide, sans-serif;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        font-size: 3.5em;
     }
     
     .categories__navigation {

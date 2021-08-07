@@ -4,19 +4,22 @@
             <div class="menu__overlay--container">
             <ul class="menu__list-link">
                 <li>
-                    <a href="#" @click.prevent.stop="handleLinkClick('/all-post/')" :title="$t('tulisan')">{{ $t('tulisan') }}</a>
+                    <a href="#" @click.prevent.stop="handleLinkClick('/all-post/')" :title="$t('tulisan')"><i class="fas fa-scroll"></i> {{ $t('tulisan') }}</a>
                 </li>
                 <li>
-                    <a target="_blank" href="https://www.youtube.com/c/hasyemiraws" :title="$t('youtube')">{{ $t('youtube') }}</a>
+                    <a target="_blank" href="https://www.youtube.com/c/hasyemiraws" :title="$t('youtube')"><i class="fab fa-youtube"></i> {{ $t('youtube') }}</a>
                 </li>
                 <!-- <li>
                     <a href="#" :title="$t('membaca')">{{ $t('membaca') }}</a>
                 </li> -->
                 <li>
-                    <a href="#" @click.prevent.stop="handleLinkClick('/currently-reading/')" :title="$t('sedang baca')">{{ $t('sedang baca') }}</a>
+                    <a href="#" @click.prevent.stop="handleLinkClick('/currently-reading/')" :title="$t('sedang baca')"><i class="fas fa-book-open"></i> {{ $t('sedang baca') }}</a>
                 </li>
                 <li>
-                    <a href="#" @click.prevent.stop="handleLinkClick('/about/')" :title="$t('tentang')">{{ $t('tentang') }}</a>
+                    <a href="#" @click.prevent.stop="handleLinkClick('/me/')" :title="$t('now')"><i class="fas fa-clock"></i> {{ $t('now') }}</a>
+                </li>
+                <li>
+                    <a href="#" @click.prevent.stop="handleLinkClick('/me/')" :title="$t('tentang')"><i class="fas fa-glasses"></i> {{ $t('tentang') }}</a>
                 </li>
             </ul>
             </div>
@@ -37,7 +40,9 @@
                         leave-active-class="animate__animated animate__fadeOut animate__faster">
                     <ul class="nav__item" :key="$i18n.locale">
                         <li>
-                            <g-link :to="$tp('/all-post/', $context.locale, true)" :title="$t('tulisan')">{{ $t('tulisan') }}</g-link>
+                            <g-link :to="$tp('/all-post/', $context.locale, true)" :title="$t('tulisan')">
+                                <i class="fas fa-scroll"></i> {{ $t('tulisan') }}
+                            </g-link>
 
                             <ul class="nav__subitem">
                                 <li>
@@ -56,10 +61,12 @@
                             <g-link :to="$tp('/podcast/')" :title="$t('podcast')">{{ $t('podcast') }}</g-link>
                         </li> -->
                         <li>
-                            <a target="_blank" href="https://www.youtube.com/c/hasyemiraws" :title="$t('youtube')">{{ $t('youtube') }}</a>
+                            <a target="_blank" href="https://www.youtube.com/c/hasyemiraws" :title="$t('youtube')">
+                                <i class="fab fa-youtube"></i> {{ $t('youtube') }}
+                            </a>
                         </li>
                         <li>
-                            <a href="#" :title="$t('membaca')">{{ $t('membaca') }}</a>
+                            <a href="#" :title="$t('membaca')"><i class="fas fa-book-open"></i> {{ $t('membaca') }}</a>
                             <ul class="nav__subitem">
                                 <li>
                                     <g-link :to="$tp('/currently-reading/')">
@@ -69,7 +76,10 @@
                             </ul>
                         </li>
                         <li>
-                            <g-link :to="$tp('/about/')" :title="$t('tentang')">{{ $t('tentang') }}</g-link>
+                            <g-link :to="$tp('/now/')" :title="$t('now')"><i class="fas fa-clock"></i> {{ $t('now') }}</g-link>
+                        </li>
+                        <li>
+                            <g-link :to="$tp('/me/')" :title="$t('tentang')"><i class="fas fa-glasses"></i> {{ $t('tentang') }}</g-link>
                         </li>
                     </ul>
                     </transition>

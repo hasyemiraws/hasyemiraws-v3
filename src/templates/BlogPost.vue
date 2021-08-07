@@ -92,12 +92,12 @@ export default {
             title: this.getAttributeLang('title'), 
             description: this.getAttributeLang('description'),
             openGraph: {
-                title: this.getAttributeLang('title'),
+                title: `${this.getAttributeLang('title')} - hasyemiraws`,
                 description: this.getAttributeLang('description'),
                 type: 'article'
             },
             twitter: {
-                title: this.getAttributeLang('title'),
+                title: `${this.getAttributeLang('title')} - hasyemiraws`,
                 description: this.getAttributeLang('description'),
                 type: 'summary'
             },
@@ -150,7 +150,7 @@ export default {
                     "name":"Hasyemi Rafsanjani Asyari"
                 },
                 "description":this.getAttributeLang('description'),
-                "headline":this.getAttributeLang('title'),
+                "headline": `${this.getAttributeLang('title')} - hasyemiraws`,
                 "dateModified":this.$page.blogPost.published_date,
                 "datePublished":this.$page.blogPost.published_date,
                 "publisher":{

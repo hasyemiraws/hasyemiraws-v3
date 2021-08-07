@@ -9,7 +9,7 @@
               high functioning introvert.
           </span>
           <span class="post--more about-me--more">
-            <g-link :to="$tp('about')">
+            <g-link :to="$tp('me')">
               <g-image
                 class="post--more-arrow"
                 src="~/assets/images/right-arrow.svg"
@@ -65,7 +65,7 @@
                     </a>
                 </span>
                 <a :href="video.node.slug">
-                    <h3 class="post--title">                              
+                    <h3 class="post--title video-title">                              
                         {{ video.node.title }}                              
                     </h3>
                     <span class="post--date">{{ new Date(video.node.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span>          
@@ -114,7 +114,7 @@
 
 <page-query>
 query {
-  allCategories(filter: {name: {ne: "anotasi daily"}}) {
+  allCategories {
       edges {
           node {
               name
@@ -190,6 +190,13 @@ export default {
 hr {
   border-top-width: 3px;
   border-color: #202020;
+}
+
+.video-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .youtube-post-wrap:not(.latest-video) {

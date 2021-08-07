@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <h5 class="text-2xl mb-5">Currently Reading</h5> 
+    <h1 class="text-3xl mt-16 page-title">Currently Reading</h1> 
 
     <transition name="fade">
       <ul class="mt-2" v-if="books.length > 0">
@@ -28,7 +28,7 @@
 
 <page-query>
 query {
-  allCategories(filter: {name: {ne: "anotasi daily"}}) {
+  allCategories {
       edges {
           node {
               name

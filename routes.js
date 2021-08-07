@@ -13,8 +13,8 @@ module.exports = {
         component: './src/pages/CurrentlyReading.vue'
       },
       {
-        path: '/en/about/',
-        component: './src/pages/About.vue'
+        path: '/en/me/',
+        component: './src/pages/Me.vue'
       },
     ],
     'in-id': [
@@ -31,8 +31,8 @@ module.exports = {
         component: './src/pages/CurrentlyReading.vue'
       },
       {
-        path: '/about/',
-        component: './src/pages/About.vue'
+        path: '/me/',
+        component: './src/pages/Me.vue'
       }
     ]
   };
