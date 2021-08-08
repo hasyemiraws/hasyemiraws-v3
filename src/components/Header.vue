@@ -16,7 +16,7 @@
                     <a href="#" @click.prevent.stop="handleLinkClick('/currently-reading/')" :title="$t('sedang baca')"><i class="fas fa-book-open"></i> {{ $t('sedang baca') }}</a>
                 </li>
                 <li>
-                    <a href="#" @click.prevent.stop="handleLinkClick('/me/')" :title="$t('now')"><i class="fas fa-clock"></i> {{ $t('now') }}</a>
+                    <a href="#" @click.prevent.stop="handleLinkClick('/now/')" :title="$t('now')"><i class="fas fa-clock"></i> {{ $t('now') }}</a>
                 </li>
                 <li>
                     <a href="#" @click.prevent.stop="handleLinkClick('/me/')" :title="$t('tentang')"><i class="fas fa-glasses"></i> {{ $t('tentang') }}</a>
