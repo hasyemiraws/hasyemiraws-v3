@@ -59,7 +59,7 @@ import VueMarkdown from 'vue-markdown'
 export default {
     metaInfo () {
         return this.$seo({
-            title: `${this.$page.anotasiDaily.title} - anotasi daily - hasyemiraws`, 
+            title: `${this.$page.anotasiDaily.title} - anotasi daily`, 
             openGraph: {
                 title: `${this.$page.anotasiDaily.title} - anotasi daily - hasyemiraws`, 
                 type: 'article'
