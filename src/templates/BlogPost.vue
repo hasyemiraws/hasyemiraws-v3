@@ -263,6 +263,14 @@ export default {
         border-bottom: 1px dashed #202020;
     }
 
+    .article--post-content h2 {
+        font-size: 1.7em;
+    }
+
+    .article--post-content h3 {
+        font-size: 1.4em;
+    }
+
     .article--post p {
         font-family: basic-sans, sans-serif;
         font-style: normal;
