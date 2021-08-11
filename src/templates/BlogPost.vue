@@ -66,6 +66,7 @@ query ($id: ID!) {
     blogPost(id: $id) {
         title
         title_en
+        tags
         description
         description_en
         content
@@ -90,6 +91,7 @@ export default {
     metaInfo () {
         return this.$seo({
             title: this.getAttributeLang('title'), 
+            keywords: this.$page.blogPost.tags,
             description: this.getAttributeLang('description'),
             openGraph: {
                 title: `${this.getAttributeLang('title')} - hasyemiraws`,
@@ -98,8 +100,10 @@ export default {
             },
             twitter: {
                 title: `${this.getAttributeLang('title')} - hasyemiraws`,
-                description: this.getAttributeLang('description'),
-                type: 'summary'
+                site: '@hasyemiraws',
+                image: this.$page.blogPost.featured_image.path,
+                creator: "Hasyemi Rafsanjani Asyari",
+                card: 'summary_large_image'
             },
             script: [
                 { innerHTML: JSON.stringify(this.jsonld), type: 'application/ld+json' },
