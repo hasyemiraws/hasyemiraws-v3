@@ -16,6 +16,16 @@
                 <article class="article--post my-10">
                 
                     <div class="article--post-content" ref="post-content">
+                        
+                        <div class="ads top">
+                            <ins class="adsbygoogle"
+                                style="display:block; text-align:center;"
+                                data-ad-layout="in-article"
+                                data-ad-format="fluid"
+                                data-ad-client="ca-pub-9523208256804448"
+                                data-ad-slot="1585355662"></ins>
+                        </div>
+
                         <vue-markdown :source="$page.anotasiDaily.content"></vue-markdown>
                     </div>
 
@@ -70,8 +80,9 @@ export default {
             },
             script: [
                 {
-                    src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
-                    async: true
+                    src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9523208256804448',
+                    async: true,
+                    crossorigin: 'anonymous'
                 },
                 {
                     src: 'https://www.googletagmanager.com/gtag/js?id=G-1QF3XWFT3G',
@@ -88,6 +99,10 @@ export default {
                 {
                     rel: "stylesheet",
                     href: "https://use.typekit.net/npd1ibg.css"
+                },
+                {
+                    rel: "canonical",
+                    href: `https://hasyemiraws.com/${this.$route.fullPath}`
                 },
                 {
                     rel: "stylesheet",

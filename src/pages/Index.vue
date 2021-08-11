@@ -176,6 +176,12 @@ import PlaygroundHome from "../components/PlaygroundHome";
 export default {
   metaInfo: {
     title: 'High Functional Introvert. Full Time Learner. Part time stalker.',
+    link: [
+      {
+        rel: "canonical",
+        href: "https://hasyemiraws.com"
+      },
+    ],
     script: [
       {
         src: "https://apis.google.com/js/platform.js"

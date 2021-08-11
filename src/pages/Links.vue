@@ -31,8 +31,16 @@ query {
 import axios from 'axios'
 
 export default {
-  metaInfo: {
-    title: 'New Content'
+  metaInfo() {
+    return {
+      title: 'New Content',
+      link: [
+        {
+          rel: "canonical",
+          href: `https://hasyemiraws.com/${this.$route.fullPath}`
+        }
+      ]
+    }
   },
   data() {
       return {

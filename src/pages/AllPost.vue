@@ -72,14 +72,14 @@ export default {
     components: {BlogList, Pager},
     metaInfo () {
         return this.$seo({
-            title: "Semua tulisan", 
+            title: this.$t('tulisan'), 
             description: "Semua kategori tulisan dari hasyemiraws",
             openGraph: {
-                title: "Semua tulisan - hasyemiraws",
+                title: `${ this.$t('tulisan') } - hasyemiraws`,
                 type: 'article'
             },
             twitter: {
-                title: "Semua tulisan - hasyemiraws",
+                title: `${ this.$t('tulisan') } - hasyemiraws`,
                 type: 'summary'
             },
             script: [
@@ -102,6 +102,10 @@ export default {
                 {
                     rel: "stylesheet",
                     href: "https://use.typekit.net/npd1ibg.css"
+                },
+                {
+                    rel: "canonical",
+                    href: `https://hasyemiraws.com/${this.$route.fullPath}`
                 },
                 {
                     rel: "stylesheet",

@@ -104,8 +104,9 @@ export default {
             script: [
                 { innerHTML: JSON.stringify(this.jsonld), type: 'application/ld+json' },
                 {
-                    src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
-                    async: true
+                    src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9523208256804448',
+                    async: true,
+                    crossorigin: 'anonymous'
                 },
                 {
                     src: 'https://www.googletagmanager.com/gtag/js?id=G-1QF3XWFT3G',
@@ -124,6 +125,10 @@ export default {
                     href: "https://use.typekit.net/npd1ibg.css"
                 },
                 {
+                    rel: "canonical",
+                    href: `https://hasyemiraws.com/${this.$route.fullPath}`
+                },
+                {
                     rel: "stylesheet",
                     href: "https://use.fontawesome.com/releases/v5.15.3/css/all.css",
                     integrity: "sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk",
@@ -140,7 +145,7 @@ export default {
             return {
                 "@type":"BlogPosting",
                 "image":this.$page.blogPost.featured_image.path,
-                "url":`https://hasyemiraws.com/${this.$route.fullPath}`,
+                "url": `https://hasyemiraws.com/${this.$route.fullPath}`,
                 "mainEntityOfPage":{
                     "@type":"WebPage",
                     "@id":`https://hasyemiraws.com/${this.$route.fullPath}`

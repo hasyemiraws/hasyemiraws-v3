@@ -23,8 +23,16 @@ query {
 
 <script>
 export default {
-  metaInfo: {
-    title: 'About us'
+  metaInfo() {
+    return {
+      title: 'Tentang saya',
+      link: [
+        {
+            rel: "canonical",
+            href: `https://hasyemiraws.com/${this.$route.fullPath}`
+        },
+      ]
+    }
   }
 }
 </script>

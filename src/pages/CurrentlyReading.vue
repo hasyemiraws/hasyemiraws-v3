@@ -15,9 +15,9 @@
             </div>
             <div class="book-progress">
               <div class="outer-bar">
-                <span :style="{width: (book.properties['Last Progress [Percent]'].rollup.number ? `${book.properties['Last Progress [Percent]'].rollup.number}px` : 'Opx')}" class="bar"></span>
+                <span :style="{width: (book.properties['Last Progress [Percent]'] && book.properties['Last Progress [Percent]'].rollup.number ? `${book.properties['Last Progress [Percent]'].rollup.number}px` : 'Opx')}" class="bar"></span>
               </div>
-              <span class="progress-number">{{ (book.properties['Last Progress [Percent]'].rollup.number ? `${book.properties['Last Progress [Percent]'].rollup.number}%` : 'O%') }}</span>
+              <span class="progress-number">{{ (book.properties['Last Progress [Percent]'] && book.properties['Last Progress [Percent]'].rollup.number ? `${book.properties['Last Progress [Percent]'].rollup.number}%` : 'O%') }}</span>
             </div>
           </div>
         </li>
@@ -44,8 +44,47 @@ query {
 import axios from 'axios'
 
 export default {
-  metaInfo: {
-    title: 'Currently Reading'
+  metaInfo () {
+    return this.$seo({
+        title: "Currently Reading", 
+        description: "Buku yang sedang saat saya baca",
+        openGraph: {
+            title: `Currently Reading - hasyemiraws`,
+            type: 'article'
+        },
+        twitter: {
+            title: `Currently Reading - hasyemiraws`,
+            type: 'summary'
+        },
+        script: [
+            {
+                src: 'https://www.googletagmanager.com/gtag/js?id=G-1QF3XWFT3G',
+                async: true
+            },
+            {
+                innerHTML: `window.dataLayer = window.dataLayer || [];` +
+                    `function gtag(){dataLayer.push(arguments);}` +
+                    `gtag('js', new Date());` +
+                    `gtag('config', 'G-1QF3XWFT3G');`
+            }
+        ],
+        link: [
+            {
+                rel: "stylesheet",
+                href: "https://use.typekit.net/npd1ibg.css"
+            },
+            {
+                rel: "canonical",
+                href: `https://hasyemiraws.com/${this.$route.fullPath}`
+            },
+            {
+                rel: "stylesheet",
+                href: "https://use.fontawesome.com/releases/v5.15.3/css/all.css",
+                integrity: "sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk",
+                crossorigin: "anonymous"
+            }
+        ]
+    })
   },
   data() {
       return {

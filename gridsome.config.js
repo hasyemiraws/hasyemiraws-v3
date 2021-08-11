@@ -58,7 +58,8 @@ module.exports = {
         rewriteDefaultLanguage: false, // rewrite default locale, default: true
         messages: {}
       }
-    }
+    },
+    'gridsome-plugin-robots-txt'
   ],
   templates: {
     BlogPost: [

@@ -37,8 +37,47 @@ query {
 import axios from 'axios'
 
 export default {
-  metaInfo: {
-    title: 'New Content'
+  metaInfo () {
+    return this.$seo({
+        title: "Now", 
+        description: "Apa yang sedang saya lakukan saat ini",
+        openGraph: {
+            title: `Now - hasyemiraws`,
+            type: 'article'
+        },
+        twitter: {
+            title: `Now - hasyemiraws`,
+            type: 'summary'
+        },
+        script: [
+            {
+                src: 'https://www.googletagmanager.com/gtag/js?id=G-1QF3XWFT3G',
+                async: true
+            },
+            {
+                innerHTML: `window.dataLayer = window.dataLayer || [];` +
+                    `function gtag(){dataLayer.push(arguments);}` +
+                    `gtag('js', new Date());` +
+                    `gtag('config', 'G-1QF3XWFT3G');`
+            }
+        ],
+        link: [
+            {
+                rel: "stylesheet",
+                href: "https://use.typekit.net/npd1ibg.css"
+            },
+            {
+                rel: "canonical",
+                href: `https://hasyemiraws.com/${this.$route.fullPath}`
+            },
+            {
+                rel: "stylesheet",
+                href: "https://use.fontawesome.com/releases/v5.15.3/css/all.css",
+                integrity: "sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk",
+                crossorigin: "anonymous"
+            }
+        ]
+    })
   },
   data() {
       return {

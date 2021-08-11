@@ -2,7 +2,7 @@
   <Layout>
     <div class="my-5">
         <center>
-            <h1>WHOOOPS, IT SEEMS THIS PAGE HAS BEEN PRUNED FROM THE "SACRED" TIMELINE</h1>
+            <h1>WHOOOPS, IT SEEMS THIS PAGE HAS BEEN PRUNED</h1>
         </center>
     </div>
   </Layout>
