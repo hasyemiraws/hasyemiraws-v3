@@ -1,31 +1,32 @@
 <template>
   <Layout>
-    <div class="flex">
-      <div class="">
-        <h1 class="text-5xl mt-16 page-title">{{ $t('sedang baca') }}</h1> 
+    <div class="flex flex-col md:flex-row mt-16">
+      <div class="w-1/4">
+        <h1 class=" font-medium uppercase text-5xl page-title">{{ $t('sedang baca') }}</h1> 
       </div>
-      <div class="">
-        <transition name="fade">
-      <ul class="mt-2" v-if="books.length > 0">
-        <li v-for="book in books" :key="book.id" class="book-item">
-          <img v-if="book.properties.Cover" class="book-thumb" :src="book.properties.Cover.url"/>
-          <div>
-            <div style="margin-bottom: 3px">
-              <span class="book-name">{{ book.properties.Book.title[0].text.content }}</span>
-              <ul class="book-format" v-if="book.properties.Format.multi_select.length > 0">
-                <li class="book-format-tag" :key="format.name" v-for="format in book.properties.Format.multi_select" :style="{backgroundColor: format.color, borderColor: format.color}">{{ format.name }}</li>
-              </ul>
-            </div>
-            <div class="book-progress">
-              <div class="outer-bar">
-                <span :style="{width: (book.properties['Last Progress [Percent]'] && book.properties['Last Progress [Percent]'].rollup.number ? `${book.properties['Last Progress [Percent]'].rollup.number}px` : 'Opx')}" class="bar"></span>
+      <div class="ml-0 mb-10 mt-10 md:ml-20 md:mt-0">
+
+        <div class="">
+          <transition-group name="fade">
+            <template v-if="isBookLoaded">
+              <div v-if="books.length > 0" key="loaded">
+                <book-item 
+                  v-for="book in books" :key="book.id" 
+                  :cover="book.properties.Cover.url"
+                  :title="book.properties.Book.title[0].text.content"
+                  :author="book.properties.Author.multi_select"
+                  :formats="book.properties.Format.multi_select"
+                  :genres="book.properties.Genre.multi_select"
+                  :progress="book.properties['Last Progress [Percent]'].rollup.number || 0"/>
               </div>
-              <span class="progress-number">{{ (book.properties['Last Progress [Percent]'] && book.properties['Last Progress [Percent]'].rollup.number ? `${book.properties['Last Progress [Percent]'].rollup.number}%` : 'O%') }}</span>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </transition>
+            </template>
+            <template v-else>
+              <book-item-skeleton key="1" />
+              <book-item-skeleton key="3" />
+              <book-item-skeleton key="2" />
+            </template>
+          </transition-group>
+        </div>
       </div>
     </div>
   </Layout>
@@ -47,8 +48,11 @@ query {
 
 <script>
 import axios from 'axios'
+import BookItemSkeleton from '../components/skeleton/BookItem.vue';
+import BookItem from '../components/BookItem.vue';
 
 export default {
+  components: { BookItem, BookItemSkeleton },
   metaInfo () {
     return this.$seo({
         title: "Currently Reading", 
@@ -93,6 +97,7 @@ export default {
   },
   data() {
       return {
+          isBookLoaded: false,
           books: []
       }
   },
@@ -103,7 +108,9 @@ export default {
       )
 
       this.books = results.data.results
+      this.isBookLoaded = true;
     } catch (error) {
+      this.isBookLoaded = true;
       console.log(error)
     }
   }
@@ -111,81 +118,7 @@ export default {
 </script>
 
 <style scoped>
-  .book-item {
-    display: flex;
-    align-items: center;
-  }
-
-  .book-thumb {
-    max-width: 100px;
-    max-height: 110px;
-    width: 100%;
-    object-fit: contain;
-  }
-
-  .book-item + .book-item {
-    margin-top: 20px;
-  }
-
-  .book-item > div {
-    margin-left: 10px;
-  }
-
-  .book-item .book-name {
-    border-bottom: 2px solid #202020;
-  }
-
-  .book-format {
-    display: inline-flex;
-    margin-left: 5px;
-    margin-top: 5px;
-  }
-
-  .book-progress {
-    display: flex;
-    align-items: center;
-  }
-
-  .progress-number {
-    font-size: 11px;
-    margin-left: 2px;
-  }
-
-  .outer-bar {
-    display: inline-block;
-    max-width: 125px;
-    width: 100%;
-    height: 15px;
-    border: 1px solid #202020;
-  }
-
-  .outer-bar .bar {
-    display: block;
-    width: 0;
-    height: 100%;
-    background: black;
-    border: none;
-  }
-
-  .book-format-tag {
-    color: white;
-    padding: 2px 6px;
-    background-color: #202020;
-    border-color: #202020;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 6px;
-    font-size: 10px;
-  }
-
-  .book-format-tag + .book-format-tag {
-    margin-left: 5px;
-  }
- 
-
-  @media screen and (min-width: 640px) {
-    .book-thumb {
-      max-width: 115px;
-    }
+  .page-title {
+    line-height: 1.2em;
   }
 </style>

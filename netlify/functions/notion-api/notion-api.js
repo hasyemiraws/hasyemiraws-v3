@@ -30,7 +30,6 @@ const handler = async function () {
       return { statusCode: response.status, body: response.message }
     }
     const data = response
-
     return {
       statusCode: 200,
       body: JSON.stringify({ results: data.results }),
@@ -40,7 +39,6 @@ const handler = async function () {
     console.log(error)
     return {
       statusCode: 500,
-      // Could be a custom message or object i.e. JSON.stringify(err)
       body: JSON.stringify({ msg: error.message }),
     }
   }
