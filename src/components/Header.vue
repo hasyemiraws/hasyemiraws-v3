@@ -13,7 +13,7 @@
                     <a href="#" :title="$t('membaca')">{{ $t('membaca') }}</a>
                 </li> -->
                 <li>
-                    <a href="#" @click.prevent.stop="handleLinkClick('/currently-reading/')" :title="$t('sedang baca')"><i class="fas fa-book-open"></i> {{ $t('sedang baca') }}</a>
+                    <a href="#" @click.prevent.stop="handleLinkClick('/sedang-membaca/')" :title="$t('sedang baca')"><i class="fas fa-book-open"></i> {{ $t('sedang baca') }}</a>
                 </li>
                 <li>
                     <a href="#" @click.prevent.stop="handleLinkClick('/now/')" :title="$t('now')"><i class="fas fa-clock"></i> {{ $t('now') }}</a>
@@ -69,8 +69,13 @@
                             <a href="#" :title="$t('membaca')"><i class="fas fa-book-open"></i> {{ $t('membaca') }}</a>
                             <ul class="nav__subitem">
                                 <li>
-                                    <g-link :to="$tp('/currently-reading/')">
+                                    <g-link :to="$tp('/sedang-membaca/')">
                                         {{ $t('sedang baca') }}
+                                    </g-link>
+                                </li>
+                                <li>
+                                    <g-link :to="$tp('/membaca/wrap-up/2021')">
+                                        {{ $t('2021 reading wrap') }}
                                     </g-link>
                                 </li>
                             </ul>

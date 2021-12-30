@@ -1,5 +1,5 @@
 <template>
-  <div class="book-item py-3 py-1">
+  <div class="book-item w-full md:w-4/6 py-3 py-1">
     <img v-if="cover" class="book-thumb" :src="cover" />
     <div class="flex-1">
       <div class="mb-2">

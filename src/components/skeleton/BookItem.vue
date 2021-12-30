@@ -1,5 +1,5 @@
 <template>
-  <div class="book-item py-3 px-1">
+  <div class="book-item w-full md:w-4/6 py-3 px-1">
     <img class="book-thumb" />
     <div class="flex-1 ml-1">
       <div class="mb-2">

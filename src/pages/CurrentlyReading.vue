@@ -4,9 +4,9 @@
       <div class="w-1/4">
         <h1 class=" font-medium uppercase text-5xl page-title">{{ $t('sedang baca') }}</h1> 
       </div>
-      <div class="ml-0 mb-10 mt-10 md:ml-20 md:mt-0">
+      <div class="ml-0 mb-10 mt-10 md:ml-20 md:mt-0 flex-auto">
 
-        <div class="">
+        <div>
           <transition-group name="fade">
             <template v-if="isBookLoaded">
               <div v-if="books.length > 0" key="loaded">
@@ -108,7 +108,7 @@ export default {
       )
 
       this.books = results.data.results
-      this.isBookLoaded = true;
+      this.isBookLoaded = true;  
     } catch (error) {
       this.isBookLoaded = true;
       console.log(error)

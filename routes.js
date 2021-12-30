@@ -13,6 +13,10 @@ module.exports = {
         component: './src/pages/CurrentlyReading.vue'
       },
       {
+        path: '/reading/wrap-up/2021',
+        component: './src/pages/ReadingInYear.vue'
+      },
+      {
         path: '/en/me/',
         component: './src/pages/Me.vue'
       },
@@ -27,8 +31,12 @@ module.exports = {
         component: './src/pages/AllPost.vue'
       },
       {
-        path: '/currently-reading/',
+        path: '/sedang-membaca/',
         component: './src/pages/CurrentlyReading.vue'
+      },
+      {
+        path: '/membaca/wrap-up/2021',
+        component: './src/pages/ReadingInYear.vue'
       },
       {
         path: '/me/',
