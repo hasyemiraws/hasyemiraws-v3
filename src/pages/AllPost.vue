@@ -127,7 +127,7 @@ export default {
 
 <style>
     .categories__title {
-        font-family: acumin-pro-wide, sans-serif
+        font-family: neue-haas-unica, sans-serif
     }
     
     .categories__navigation {
@@ -155,7 +155,7 @@ export default {
         font-size: 13px;
         padding: 4px 8px;
         border-radius: 15px;
-        font-family: 'acumin-pro-wide', sans-serif;
+        font-family: neue-haas-unica, sans-serif;
         display: inline-block;
         text-transform: lowercase;
         border: 2px solid #202020;

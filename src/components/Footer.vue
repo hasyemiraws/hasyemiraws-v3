@@ -44,7 +44,7 @@
 }
 
 .footer__about--copyright {
-    font-family: "acumin-pro-wide", sans-serif;
+    font-family: neue-haas-unica, sans-serif;
     font-size: 11px;
 }
 

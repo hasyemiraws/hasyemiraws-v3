@@ -1,5 +1,5 @@
 <template>
-    <section class="container">
+    <section class="container sm:w-full sm:max-w-full">
         <div class="grid grid-cols-1 md:grid-cols-3 md:gap-10">
             <div class="col-span-2">
                 <div class="grid grid-cols-2 gap-5 md:gap-10">
@@ -20,7 +20,7 @@
                                         </h3>
                                     </g-link>
 
-                                    <span class="post--date">{{ page.node.published_date }}</span>          
+                                    <span class="post--date">{{ new Date(page.node.published_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span>          
                                 </figcaption>
                             </figure>
                         </div>
@@ -44,7 +44,7 @@
                                 </h3>
                             </g-link>          
                             
-                            <span class="post--date">{{ page.node.published_date }}</span>          
+                            <span class="post--date">{{ new Date(page.node.published_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span>          
                         </figcaption>
                     </figure>
                 </template>
@@ -64,7 +64,7 @@
                             a 50,50 0 1,0 100,0
                             a 50,50 0 1,0 -100,0" />
                 </defs>
-                <text id="brand--text" fill="#000" font-size="12" font-family="acumin-pro-wide" font-weight="bold" letter-spacing="12" width="100">
+                <text id="brand--text" fill="#000" font-size="12" font-family="neue-haas-unica" font-weight="bold" letter-spacing="12" width="100">
                     <textPath xlink:href="#circle">MORE STORIES</textPath>
                 </text>
             </svg>
@@ -154,7 +154,7 @@ export default {
 
     .post--category {
         font-size: 12px;
-        font-family: 'acumin-pro', sans-serif;
+        font-family: 'neue-haas-unica', sans-serif;
         display: inline-block;
         background: #202020;
         color: white;
@@ -167,15 +167,19 @@ export default {
     }
 
     .post--title {
-        margin-top: 0px;
-        font-family: acumin-pro-semi-condensed, sans-serif;
-        font-weight: 700;    
+        margin-top: 5px;
+        font-family: neue-haas-unica, sans-serif;
+        font-weight: 500;    
         line-height: 1.35em;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     .post--date {
-        font-family: 'acumin-pro', sans-serif;
-        font-size: 14px;
+        font-family: neue-haas-unica, sans-serif;
+        font-size: 13px;
     }
 
     .post--more {

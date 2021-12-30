@@ -32,7 +32,7 @@
                   id="brand--text"
                   fill="#000"
                   font-size="10"
-                  font-family="acumin-pro-wide"
+                  font-family="neue-haas-unica"
                   font-weight="bold"
                   letter-spacing="10"
                   width="100"
@@ -65,7 +65,7 @@
                     </a>
                 </span>
                 <a :href="video.node.slug">
-                    <h3 class="post--title video-title">                              
+                    <h3 class="post--title video-title mt-1">                              
                         {{ video.node.title }}                              
                     </h3>
                     <span class="post--date">{{ new Date(video.node.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span>          
@@ -84,7 +84,7 @@
                           a 50,50 0 1,0 100,0
                           a 50,50 0 1,0 -100,0" />
               </defs>
-              <text id="brand--text" fill="#000" font-size="12" font-family="acumin-pro-wide" font-weight="bold" letter-spacing="12" width="100">
+              <text id="brand--text" fill="#000" font-size="12" font-family="neue-haas-unica" font-weight="bold" letter-spacing="12" width="100">
                   <textPath xlink:href="#circle">MORE VIDEOS</textPath>
               </text>
           </svg>
@@ -94,11 +94,11 @@
     <hr/>
     <section class="container section py-10">
       <div>
-        <h1 class="section--title mb-5">anotasi daily</h1>
+        <h1 class="section--title mb-5">Anotasi daily/</h1>
         <ul>
-          <li class="mb-10 pb-3 border-b-2 border-gray" v-for="anotasi in $page.allAnotasiDaily.edges" :key="anotasi.id">
-            <g-link :to="$tp(anotasi.node.path)" class="flex" style="font-family: acumin-pro-wide, sans-serif">
-              <span style="flex-basis: 30px; max-width: 30px;" class="mr-10 text-4xl text-gray-500">{{ anotasi.node.number }}</span>
+          <li class="mb-10 pb-4 border-b-2 border-gray" v-for="anotasi in $page.allAnotasiDaily.edges" :key="anotasi.id">
+            <g-link :to="$tp(anotasi.node.path)" class="flex">
+              <span style="flex-basis: 30px; max-width: 30px;" class="mr-10 text-5xl text-gray-300">{{ anotasi.node.number }}</span>
               <div>
                 <h3 class="text-3xl uppercase">{{ anotasi.node.title }} </h3>
                 <span class="post--date">{{ new Date(anotasi.node.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span>          
@@ -155,7 +155,7 @@ query {
     }
   }
 
-  allYoutube {
+  allYoutube(limit: 5) {
     edges {
       node {
         title
@@ -192,7 +192,55 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.hero {
+    &--intro {
+        height: 60vh;        
+        display: flex;   
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    &--label {
+        .hero-title {
+            display: inline; 
+            letter-spacing: 2px;            
+            font-family: $font-primary;
+            font-family: neue-haas-unica, sans-serif;
+            font-weight: 700;
+            font-size: 3.2em;
+            line-height: 1.3em;
+            position: relative;
+
+            .about-me--more {
+                position: absolute;
+                top: 52%;
+                right: -65px;
+                padding: 0;
+
+                .post--more-arrow {
+                    transition: all 0.3s ease;
+                }
+            
+        
+                &:hover .post--more-arrow {
+                    transform: translate(calc(-50% + 5px), -50%);
+                }
+            }
+
+            @include breakpoint('max_phablet') {
+                font-size: 1.7em;
+
+                .about-me--more {
+                    left: -20px;
+                    right: auto;
+                    top: 75%;
+                }
+            }
+        }
+    }
+}
+
 hr {
   border-top-width: 3px;
   border-color: #202020;

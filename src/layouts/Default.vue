@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-wrapper mx-7 md:mx-20 xl:mx-auto">
+  <div class="layout-wrapper mx-7 xs:mx-20 lg:mx-auto xl:mx-auto">
       <transition
         mode="out-in"
         appear

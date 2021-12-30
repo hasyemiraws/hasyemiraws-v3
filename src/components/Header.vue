@@ -83,7 +83,7 @@
                         </li>
                     </ul>
                     </transition>
-                    <!-- <div class="header__nav--lang">
+                    <div class="header__nav--lang">
                         <span class="header__nav--lang-label" @click="toggleDropdown">
                             {{currentLocale}}
                         </span>
@@ -92,7 +92,7 @@
                                 <a @click.prevent.stop="changeLocale(lang)" href="#">{{ lang }}</a>
                             </li>
                         </ul>
-                    </div> -->
+                    </div>
                 </nav>
 
                 <span class="hamburger-menu" @click="showMenu">
@@ -133,11 +133,11 @@ header.scrolled > div, header.scrolled > div > div {
 }
 
 .logo-type {
-	font-family: acumin-pro-wide, sans-serif;
+	font-family: neue-haas-unica, sans-serif;
 	font-style: normal;
 	font-weight: 700;
-	letter-spacing: -1px;
-    font-size: 21px;
+	letter-spacing: 1px;
+    font-size: 28px;
 }
 
 .menu-active .logo-type {
@@ -153,10 +153,6 @@ header.scrolled > div, header.scrolled > div > div {
 header.scrolled .type-link,
 header.scrolled .hamburger-menu {
     transform: scale(0.8);
-}
-
-.hamburger-menu {
-    margin-right: -15px;
 }
 
 .filler {
@@ -184,8 +180,8 @@ header.scrolled .hamburger-menu {
 
     .nav__item {
         display: inline-flex;
-        font-family: acumin-pro-wide, sans-serif;
-        font-size: 13px;
+        font-family: neue-haas-unica, sans-serif;
+        font-size: 14px;
         letter-spacing: 0.5px;
         text-transform: uppercase;
     }
@@ -223,7 +219,7 @@ header.scrolled .hamburger-menu {
     }
 
     .nav__item > li + li {
-        margin-left: 25px;
+        margin-left: 35px;
     }
 
     .hide-mobile {
@@ -237,12 +233,12 @@ header.scrolled .hamburger-menu {
     .header__nav--lang {
         display: inline-flex;
         align-items: center;
-        margin-left: 20px;
+        margin-left: 25px;
         height: 35px;
         width: 45px;
         position: relative;
         text-transform: uppercase;
-        font-family: acumin-pro-wide, sans-serif;
+        font-family: neue-haas-unica, sans-serif;
     }
 
     .header__nav--lang-list {
