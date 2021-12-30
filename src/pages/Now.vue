@@ -100,7 +100,7 @@ export default {
 
 <style scoped>
     .page-title {
-      font-family: acumin-pro-wide, sans-serif;
+      font-family: neue-haas-unica, sans-serif;
       letter-spacing: 1.5px;
     }
 

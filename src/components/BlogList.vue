@@ -27,7 +27,7 @@
                     </template>
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-5 md:grid-cols-1 md:gap-10">
+            <div class="grid grid-cols-2 gap-3 md:grid-cols-1 md:gap-10">
                 <template v-for="(page, idx) in rightPages">
                     <figure class="post--wrapper mb-14" :key="page.node.id">
                         <g-link :to="getLinkLang(page.node)" class="aspect-ratio-1-1-sm"><img data-object-fit class="lazy w-full" :data-src="page.node.featured_image.path"/></g-link>

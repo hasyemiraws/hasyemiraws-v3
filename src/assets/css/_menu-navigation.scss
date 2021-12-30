@@ -40,8 +40,7 @@
 
 	&__list-link {		
         list-style-type: none;     
-        text-align: center;
-        width: 85%;
+        width: 75%;
         position: relative;
 
         @include breakpoint(phablet) {

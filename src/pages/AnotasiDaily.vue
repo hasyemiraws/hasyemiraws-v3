@@ -20,7 +20,7 @@
         <h1 class="text-5xl my-10 mt-16 categories__title">anotasi daily</h1> 
         <ul>
         <li class="mb-10 pb-3 border-b-2 border-gray" v-for="anotasi in $page.allAnotasiDaily.edges" :key="anotasi.id">
-            <g-link :to="$tp(anotasi.node.path)" class="flex" style="font-family: acumin-pro-wide, sans-serif">
+            <g-link :to="$tp(anotasi.node.path)" class="flex">
               <span style="flex-basis: 30px; max-width: 30px;" class="mr-10 text-4xl text-gray-500">{{ anotasi.node.number }}</span>
               <div>
                 <h3 class="text-3xl uppercase">{{ anotasi.node.title }} </h3>
@@ -120,7 +120,7 @@ export default {
 
 <style>
     .categories__title {
-        font-family: acumin-pro-wide, sans-serif;
+        font-family: neue-haas-unica, sans-serif;
         font-weight: 700;
         letter-spacing: 1.5px;
         font-size: 3.5em;
@@ -151,7 +151,7 @@ export default {
         font-size: 13px;
         padding: 4px 8px;
         border-radius: 15px;
-        font-family: 'acumin-pro-wide', sans-serif;
+        font-family: neue-haas-unica, sans-serif;
         display: inline-block;
         text-transform: lowercase;
         border: 2px solid #202020;

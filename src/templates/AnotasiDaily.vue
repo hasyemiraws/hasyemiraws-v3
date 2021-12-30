@@ -145,13 +145,13 @@ export default {
     }
 
     .article--date {
-        font-family: 'acumin-pro', sans-serif;
+        font-family: neue-haas-unica, sans-serif;
         font-size: 14px;
     }
 
     .article--category {
         font-size: 12px;
-        font-family: 'acumin-pro', sans-serif;
+        font-family: neue-haas-unica, sans-serif;
         display: inline-block;
         background: #202020;
         color: white;
@@ -166,7 +166,7 @@ export default {
     .article--title {
         font-weight: 700;
         letter-spacing: 1px;
-        font-family: acumin-pro-semi-condensed, sans-serif;
+        font-family: neue-haas-unica, sans-serif;
     }
 
     .article--featured-wrap {

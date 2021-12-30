@@ -342,7 +342,7 @@ export default {
                 outAnimation = "animate__fadeOut"
             }
 
-            const hideMenu = function() {
+            const hideMenu = () => {
                 header.classList.remove("menu-active")
                 menuOverlay.style.display = "none";
                 
@@ -382,9 +382,7 @@ export default {
             }
         },
         handleLinkClick(path) {
-            let hamburgerMenu = document.querySelector('#hamburgerMenu');
             this.showMenu();
-            hamburgerMenu.classList.toggle('active');
             
             this.$router.push({
                 path: this.$tp(path, this.$i18n.locale.toString(), true)

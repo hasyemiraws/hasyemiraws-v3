@@ -1,8 +1,11 @@
 <template>
   <Layout>
-    <h1 class="text-3xl mt-16 page-title">Currently Reading</h1> 
-
-    <transition name="fade">
+    <div class="flex">
+      <div class="">
+        <h1 class="text-5xl mt-16 page-title">{{ $t('sedang baca') }}</h1> 
+      </div>
+      <div class="">
+        <transition name="fade">
       <ul class="mt-2" v-if="books.length > 0">
         <li v-for="book in books" :key="book.id" class="book-item">
           <img v-if="book.properties.Cover" class="book-thumb" :src="book.properties.Cover.url"/>
@@ -23,6 +26,8 @@
         </li>
       </ul>
     </transition>
+      </div>
+    </div>
   </Layout>
 </template>
 
